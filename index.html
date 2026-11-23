@@ -1,0 +1,631 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#102c24">
+<title>Simulado | Direito do Trabalho</title>
+
+<style>
+:root {
+  --green: #16734b;
+  --dark: #102c24;
+  --light: #e9f5ee;
+  --bg: #f3f6f4;
+  --text: #24332d;
+  --muted: #718078;
+  --red: #dc4444;
+  --border: #e2e9e4;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 24px 15px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+.container { max-width: 820px; margin: auto; }
+header {
+  background: var(--dark);
+  color: white;
+  padding: 25px;
+  border-radius: 17px;
+  margin-bottom: 20px;
+}
+.brand {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #a8d9bb;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+header h1 { font-size: 25px; margin: 12px 0 7px; }
+header p { color: #c5d9ce; margin: 0; font-size: 14px; }
+.card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 5px 20px #102c2409;
+}
+.top-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+}
+.progress-bg {
+  height: 8px;
+  background: #e8eee9;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 14px 0 25px;
+}
+.progress-fill {
+  height: 100%;
+  width: 0;
+  background: var(--green);
+  border-radius: 20px;
+  transition: width .3s;
+}
+.question {
+  font-size: 17px;
+  line-height: 1.7;
+  font-weight: 650;
+  margin-bottom: 22px;
+  white-space: pre-line;
+}
+.options { display: grid; gap: 12px; }
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  text-align: left;
+  width: 100%;
+  padding: 15px;
+  border: 2px solid var(--border);
+  border-radius: 11px;
+  background: white;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.55;
+  transition: .2s;
+}
+.option:hover:not(:disabled) {
+  border-color: var(--green);
+  background: #f5fbf7;
+}
+.letter {
+  flex-shrink: 0;
+  width: 27px;
+  height: 27px;
+  border-radius: 7px;
+  background: #eef3ef;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+}
+.option.correct {
+  border-color: var(--green);
+  background: #e9f7ee;
+  color: #145b38;
+}
+.option.correct .letter { background: #c7e9d2; }
+.option.wrong {
+  border-color: var(--red);
+  background: #fff0f0;
+  color: #a52e2e;
+}
+.option.wrong .letter { background: #fbdada; }
+.option:disabled { cursor: default; }
+.feedback {
+  display: none;
+  margin-top: 22px;
+  padding: 18px;
+  border-radius: 11px;
+  background: #f1f7f3;
+  border-left: 4px solid var(--green);
+  line-height: 1.65;
+  font-size: 14px;
+}
+.feedback.wrong-feedback {
+  background: #fff5f5;
+  border-left-color: var(--red);
+}
+.feedback-title {
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+.score-live { font-size: 13px; font-weight: 700; color: var(--muted); }
+.btn {
+  border: none;
+  background: var(--green);
+  color: white;
+  padding: 13px 20px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 750;
+  cursor: pointer;
+}
+.btn:hover { filter: brightness(.92); }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.secondary {
+  background: white;
+  color: var(--green);
+  border: 1px solid var(--border);
+}
+.result { display: none; text-align: center; }
+.result h2 { color: var(--dark); font-size: 25px; }
+.result-circle {
+  width: 145px;
+  height: 145px;
+  border-radius: 50%;
+  border: 9px solid #dcefe2;
+  display: grid;
+  place-content: center;
+  margin: 25px auto;
+}
+.result-circle strong { font-size: 35px; color: var(--green); }
+.result-circle span { color: var(--muted); font-size: 12px; }
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 10px;
+  margin: 25px 0;
+}
+.stat {
+  padding: 16px 8px;
+  background: #f5f8f5;
+  border-radius: 10px;
+}
+.stat strong { display: block; font-size: 23px; color: var(--dark); }
+.stat span { font-size: 12px; color: var(--muted); }
+.review { text-align: left; margin-top: 30px; }
+.review h3 { font-size: 17px; }
+.review-item {
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin: 10px 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.review-item.good { border-left: 4px solid var(--green); }
+.review-item.bad { border-left: 4px solid var(--red); }
+.review-item p { margin: 7px 0; }
+.review-answer { font-weight: 750; }
+.footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  margin: 20px 0 5px;
+}
+@media(max-width:500px) {
+  body { padding: 13px 10px; }
+  header { padding: 20px; }
+  header h1 { font-size: 21px; }
+  .card { padding: 18px; }
+  .question { font-size: 15px; }
+  .option { padding: 12px; font-size: 13px; }
+  .stats { gap: 6px; }
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<header>
+  <div class="brand">Plataforma de Estudos</div>
+  <h1>Direito do Trabalho</h1>
+  <p>Simulado: Contratos e Duração da Jornada</p>
+</header>
+
+<main class="card">
+
+<section id="quiz">
+  <div class="top-info">
+    <span id="progressText">Questão 1 de 10</span>
+    <span id="scoreLive">Acertos: 0</span>
+  </div>
+
+  <div class="progress-bg">
+    <div class="progress-fill" id="progressBar"></div>
+  </div>
+
+  <div class="question" id="question"></div>
+  <div class="options" id="options"></div>
+
+  <div class="feedback" id="feedback" aria-live="polite">
+    <div class="feedback-title" id="feedbackTitle"></div>
+    <div id="feedbackText"></div>
+  </div>
+
+  <div class="nav">
+    <span class="score-live" id="answeredText">Responda para continuar</span>
+    <button class="btn" id="nextBtn" disabled>Próxima questão →</button>
+  </div>
+</section>
+
+<section class="result" id="result">
+  <h2>Simulado concluído!</h2>
+  <p>Confira seu desempenho nesta tentativa.</p>
+
+  <div class="result-circle">
+    <strong id="percentage">0%</strong>
+    <span>DE APROVEITAMENTO</span>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <strong id="correctCount">0</strong>
+      <span>Acertos</span>
+    </div>
+    <div class="stat">
+      <strong id="wrongCount">0</strong>
+      <span>Erros</span>
+    </div>
+    <div class="stat">
+      <strong id="totalCount">10</strong>
+      <span>Questões</span>
+    </div>
+  </div>
+
+  <p id="resultMessage"></p>
+
+  <button class="btn" onclick="restartQuiz()">↻ Refazer simulado</button>
+  <button class="btn secondary" onclick="window.print()">Imprimir resultado</button>
+
+  <div class="review">
+    <h3>📚 Revisão das questões</h3>
+    <div id="reviewList"></div>
+  </div>
+</section>
+
+</main>
+
+<div class="footer">
+  Material de apoio para estudos • Direito do Trabalho
+</div>
+</div>
+
+<script>
+const originalQuestions = [
+{
+q:"1. Uma empresa do ramo de varejo precisa contratar reforço de pessoal por 90 dias para atender ao aumento extraordinário de vendas no final de ano, sem vínculo direto com a tomadora. Caso haja necessidade comprovada de manutenção das condições que ensejaram a contratação, qual é o prazo máximo total que esse trabalhador poderá permanecer prestando serviços sob a égide da Lei nº 6.019/74?",
+options:[
+"180 dias improrrogáveis.",
+"270 dias, somando o prazo inicial e a prorrogação.",
+"2 anos, permitida uma única prorrogação.",
+"90 dias, prorrogáveis por mais 90 dias apenas mediante acordo coletivo."
+],
+answer:1,
+explanation:"Conforme o art. 10, §§ 1º e 2º da Lei nº 6.019/74, o contrato de trabalho temporário não poderá exceder 180 dias, consecutivos ou não, podendo ser prorrogado por até 90 dias quando comprovada a manutenção das condições que o ensejaram. Total: 270 dias."
+},
+{
+q:"2. Um empregado celebrou contrato de trabalho por prazo determinado de 12 meses, sem cláusula assecuratória do direito recíproco de rescisão antecipada. Faltando exatos 4 meses para o término, o empregador decidiu dispensá-lo sem justa causa. Sabendo que o salário mensal do empregado era de R$ 3.000,00, qual o valor da indenização prevista no art. 479 da CLT?",
+options:[
+"R$ 12.000,00.",
+"R$ 6.000,00.",
+"R$ 3.000,00.",
+"Nenhuma indenização, apenas aviso-prévio de 30 dias."
+],
+answer:1,
+explanation:"Pelo art. 479 da CLT, o empregador que rescindir antecipadamente e sem justa causa contrato por prazo determinado, sem cláusula assecuratória, pagará metade da remuneração a que o empregado teria direito até o termo final. 4 × R$ 3.000,00 = R$ 12.000,00; metade = R$ 6.000,00."
+},
+{
+q:"3. Sobre as regras do contrato de trabalho intermitente introduzidas pela Reforma Trabalhista (art. 452-A da CLT), assinale a alternativa correta quanto à convocação e ao período de inatividade.",
+options:[
+"O empregado tem até 48 horas para responder ao chamado, presumindo-se a aceitação no silêncio.",
+"A recusa da oferta pelo empregado caracteriza insubordinação e autoriza justa causa.",
+"O empregador deve convocar o trabalhador com pelo menos três dias corridos de antecedência.",
+"O período de inatividade é considerado tempo à disposição do empregador, sendo vedado prestar serviços a terceiros."
+],
+answer:2,
+explanation:"O art. 452-A, §§ 1º a 5º da CLT estabelece convocação com pelo menos 3 dias corridos de antecedência. O empregado tem 1 dia útil para responder; o silêncio presume recusa. A recusa não descaracteriza a subordinação e o período de inatividade não é tempo à disposição."
+},
+{
+q:"4. Em relação ao regime de teletrabalho ou trabalho remoto regulamentado pelos artigos 75-A a 75-F da CLT, qual situação é expressamente permitida pela legislação trabalhista atual?",
+options:[
+"A alteração do regime presencial para o teletrabalho por ato unilateral exclusivo do empregador.",
+"O comparecimento habitual à empresa para atividades específicas sem descaracterizar o regime.",
+"A integração das utilidades tecnológicas fornecidas pela empresa ao salário do empregado.",
+"A equiparação automática do teletrabalhador ao operador de telemarketing."
+],
+answer:1,
+explanation:"Segundo o art. 75-B, § 1º da CLT, o comparecimento, ainda que de modo habitual, às dependências do empregador para atividades específicas que exijam a presença do empregado não descaracteriza o regime de teletrabalho."
+},
+{
+q:"5. Um empregado que cumpre jornada contratual das 8h às 12h e das 13h às 17h registrou os seguintes horários de ponto em um determinado dia: entrada às 07h56 (-4 min), saída para almoço às 12h01 (+1 min), retorno às 12h56 (-4 min) e saída final às 17h02 (+2 min). À luz do art. 58, § 1º da CLT, como deve ser tratado esse registro?",
+options:[
+"Nenhuma hora extra será paga, pois nenhuma marcação isolada ultrapassou 5 minutos.",
+"Serão computados 11 minutos como horas extras, pois a soma das variações excedeu o limite diário de dez minutos.",
+"Apenas os 2 minutos finais serão pagos, pois minutos anteriores ao início do turno são desconsiderados.",
+"Serão pagos apenas 1 minuto excedente ao limite legal de 10 minutos diários."
+],
+answer:1,
+explanation:"O art. 58, § 1º da CLT estabelece tolerância de até 5 minutos por marcação, observado o limite máximo de 10 minutos diários. Ultrapassado esse limite, a Súmula 366 do TST determina que seja considerada como extra a totalidade do tempo que exceder a jornada normal. No exemplo, são 11 minutos."
+},
+{
+q:"6. No tocante às modalidades de compensação de jornada e banco de horas previstas no art. 59 da CLT, qual distinção jurídica está correta?",
+options:[
+"O banco de horas por acordo individual escrito exige compensação no prazo máximo de seis meses.",
+"A compensação dentro do mesmo mês exige obrigatoriamente convenção coletiva de trabalho.",
+"O banco de horas anual pode ser pactuado por acordo individual tácito.",
+"Em caso de rescisão sem compensação integral, as horas são pagas sem adicional de 50%."
+],
+answer:0,
+explanation:"O art. 59, § 5º da CLT permite banco de horas por acordo individual escrito, com compensação em até 6 meses. O banco anual exige acordo ou convenção coletiva (§ 2º). A compensação dentro do mesmo mês pode ser pactuada por acordo individual tácito ou escrito (§ 6º)."
+},
+{
+q:"7. Uma empresa teve sua linha de produção paralisada por três dias em razão da falta prolongada de energia elétrica provocada pela queda de um raio na subestação municipal. Para repor o tempo perdido, como a empresa poderá exigir a recuperação das horas conforme o art. 61, § 3º da CLT?",
+options:[
+"Prorrogando a jornada em até 4 horas diárias, sem limite anual de dias.",
+"Prorrogando a jornada em até duas horas diárias, por no máximo 45 dias ao ano.",
+"Exigindo trabalho aos domingos sem necessidade de autorização ou comunicação à autoridade competente.",
+"Impondo jornada total de 12 horas diárias durante 60 dias consecutivos."
+],
+answer:1,
+explanation:"O art. 61, § 3º da CLT prevê recuperação de horas em caso de interrupção por causas acidentais ou força maior, mediante prévia autorização da autoridade competente, até 2 horas extras por dia, sem exceder 10 horas de trabalho diárias e por período máximo de 45 dias por ano."
+},
+{
+q:"8. Um trabalhador sujeito à jornada de 8 horas diárias possui direito ao intervalo intrajornada mínimo de 1 hora. Em determinado dia, por necessidade do serviço, usufruiu apenas 25 minutos de intervalo, sem previsão em norma coletiva. De acordo com a redação atual do art. 71, § 4º da CLT, qual é a consequência jurídica para o empregador?",
+options:[
+"Pagamento integral de 1 hora como extra, com natureza salarial.",
+"Pagamento de 35 minutos com acréscimo de 50%, possuindo natureza indenizatória.",
+"Apenas multa administrativa, sem pagamento ao empregado.",
+"Pagamento de 35 minutos com acréscimo de 25%, possuindo natureza salarial."
+],
+answer:1,
+explanation:"Conforme o art. 71, § 4º da CLT, após a Reforma Trabalhista, a concessão parcial do intervalo intrajornada implica pagamento apenas do período suprimido, com acréscimo de 50%, possuindo natureza indenizatória. Neste caso: 60 - 25 = 35 minutos."
+},
+{
+q:"9. Sobre os regimes de sobreaviso e prontidão disciplinados no art. 244 da CLT (aplicáveis aos ferroviários e por analogia a outras categorias), qual alternativa apresenta corretamente a distinção entre os dois institutos?",
+options:[
+"No sobreaviso, a escala máxima é de 12 horas e a remuneração é de 2/3 do salário normal.",
+"Na prontidão, o empregado fica nas dependências da empresa por até 12 horas, recebendo dois terços.",
+"Em ambos os regimes, o empregado recebe 1/3 do salário-hora normal e a escala máxima é de 24 horas.",
+"Na prontidão, o empregado permanece em sua própria casa aguardando chamado por até 24 horas."
+],
+answer:1,
+explanation:"Pelo art. 244, §§ 2º e 3º da CLT: no sobreaviso, o empregado permanece fora das dependências da empresa aguardando chamado, em escala máxima de 24 horas, recebendo 1/3 do salário-hora normal. Na prontidão, permanece nas dependências da empresa, em escala máxima de 12 horas, recebendo 2/3."
+},
+{
+q:"10. Um empregado que trabalha regularmente de segunda-feira a sábado encerra sua jornada no sábado às 18h00. Considerando a somatória do intervalo interjornada mínimo (art. 66 da CLT) com o descanso semanal remunerado (art. 67 da CLT), a partir de que horário esse empregado poderá retornar ao trabalho na segunda-feira sem violar os períodos de repouso?",
+options:[
+"A partir das 18h00 de domingo.",
+"A partir das 00h00 de segunda-feira.",
+"A partir das 05h00 da manhã de segunda-feira.",
+"A partir das 06h00 da manhã de segunda-feira."
+],
+answer:2,
+explanation:"Somam-se as 11 horas consecutivas de intervalo interjornada (art. 66) às 24 horas de descanso semanal remunerado (art. 67), totalizando 35 horas. Contando 35 horas a partir de sábado às 18h00, chega-se a segunda-feira às 05h00."
+}
+];
+
+let questions = [];
+let current = 0;
+let score = 0;
+let responses = [];
+
+const letters = ["A", "B", "C", "D"];
+
+function shuffle(array) {
+  const result = [...array];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
+function prepareQuiz() {
+  questions = shuffle(originalQuestions).map(item => {
+    const options = item.options.map((text, index) => ({
+      text,
+      correct: index === item.answer
+    }));
+    return {
+      ...item,
+      shuffledOptions: shuffle(options)
+    };
+  });
+  current = 0;
+  score = 0;
+  responses = [];
+}
+
+function loadQuestion() {
+  const item = questions[current];
+
+  document.getElementById("progressText").textContent =
+    `Questão ${current + 1} de ${questions.length}`;
+
+  document.getElementById("scoreLive").textContent =
+    `Acertos: ${score}`;
+
+  document.getElementById("progressBar").style.width =
+    `${(current / questions.length) * 100}%`;
+
+  document.getElementById("question").textContent = item.q;
+
+  const optionsEl = document.getElementById("options");
+  optionsEl.innerHTML = "";
+
+  const feedback = document.getElementById("feedback");
+  feedback.style.display = "none";
+  feedback.className = "feedback";
+
+  document.getElementById("answeredText").textContent =
+    "Responda para continuar";
+
+  const nextBtn = document.getElementById("nextBtn");
+  nextBtn.disabled = true;
+  nextBtn.textContent =
+    current === questions.length - 1 ? "Ver resultado →" : "Próxima questão →";
+
+  item.shuffledOptions.forEach((option, index) => {
+    const button = document.createElement("button");
+    button.className = "option";
+
+    const letter = document.createElement("span");
+    letter.className = "letter";
+    letter.textContent = letters[index];
+
+    const text = document.createElement("span");
+    text.textContent = option.text;
+
+    button.append(letter, text);
+    button.addEventListener("click", () => selectOption(index));
+
+    optionsEl.appendChild(button);
+  });
+}
+
+function selectOption(selectedIndex) {
+  const item = questions[current];
+  const selected = item.shuffledOptions[selectedIndex];
+  const correctIndex = item.shuffledOptions.findIndex(o => o.correct);
+  const buttons = document.querySelectorAll(".option");
+
+  buttons.forEach(button => button.disabled = true);
+
+  buttons[correctIndex].classList.add("correct");
+
+  if (selected.correct) {
+    score++;
+  } else {
+    buttons[selectedIndex].classList.add("wrong");
+  }
+
+  responses[current] = selectedIndex;
+
+  document.getElementById("scoreLive").textContent =
+    `Acertos: ${score}`;
+
+  document.getElementById("answeredText").textContent =
+    selected.correct ? "Resposta correta!" : "Resposta incorreta";
+
+  const feedback = document.getElementById("feedback");
+  feedback.style.display = "block";
+
+  if (selected.correct) {
+    document.getElementById("feedbackTitle").textContent =
+      "✓ Muito bem! Você acertou.";
+  } else {
+    feedback.classList.add("wrong-feedback");
+    document.getElementById("feedbackTitle").textContent =
+      "✕ Não foi dessa vez. Veja a resposta correta.";
+  }
+
+  document.getElementById("feedbackText").textContent =
+    item.explanation;
+
+  document.getElementById("progressBar").style.width =
+    `${((current + 1) / questions.length) * 100}%`;
+
+  document.getElementById("nextBtn").disabled = false;
+}
+
+document.getElementById("nextBtn").addEventListener("click", () => {
+  current++;
+
+  if (current < questions.length) {
+    loadQuestion();
+  } else {
+    showResult();
+  }
+});
+
+function showResult() {
+  document.getElementById("quiz").style.display = "none";
+  document.getElementById("result").style.display = "block";
+
+  const total = questions.length;
+  const wrong = total - score;
+  const percentage = Math.round((score / total) * 100);
+
+  document.getElementById("percentage").textContent =
+    `${percentage}%`;
+
+  document.getElementById("correctCount").textContent = score;
+  document.getElementById("wrongCount").textContent = wrong;
+  document.getElementById("totalCount").textContent = total;
+
+  let message;
+
+  if (percentage === 100) {
+    message = "Excelente! Você acertou todas as questões!";
+  } else if (percentage >= 80) {
+    message = "Ótimo desempenho! Você está no caminho certo.";
+  } else if (percentage >= 60) {
+    message = "Bom trabalho! Continue revisando os conteúdos.";
+  } else {
+    message = "Continue estudando. A revisão vai ajudar a melhorar!";
+  }
+
+  document.getElementById("resultMessage").textContent = message;
+
+  const reviewList = document.getElementById("reviewList");
+  reviewList.innerHTML = "";
+
+  questions.forEach((item, index) => {
+    const selectedIndex = responses[index];
+    const selected = item.shuffledOptions[selectedIndex];
+    const correct = item.shuffledOptions.find(o => o.correct);
+
+    const div = document.createElement("div");
+    div.className = `review-item ${selected.correct ? "good" : "bad"}`;
+
+    const title = document.createElement("strong");
+    title.textContent = `Questão ${index + 1} — ${selected.correct ? "Acertou" : "Errou"}`;
+
+    const question = document.createElement("p");
+    question.textContent = item.q;
+
+    const yourAnswer = document.createElement("p");
+    yourAnswer.textContent = `Sua resposta: ${selected.text}`;
+
+    const correctAnswer = document.createElement("p");
+    correctAnswer.className = "review-answer";
+    correctAnswer.textContent = `Resposta correta: ${correct.text}`;
+
+    const explanation = document.createElement("p");
+    explanation.textContent = `Comentário: ${item.explanation}`;
+
+    div.append(title, question, yourAnswer, correctAnswer, explanation);
+    reviewList.appendChild(div);
+  });
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function restartQuiz() {
+  prepareQuiz();
+
+  document.getElementById("result").style.display = "none";
+  document.getElementById("quiz").style.display = "block";
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  loadQuestion();
+}
+
+prepareQuiz();
+loadQuestion();
+</script>
+</body>
+</html>
