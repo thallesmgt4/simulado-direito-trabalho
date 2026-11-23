@@ -308,147 +308,447 @@ header p { color: #c5d9ce; margin: 0; font-size: 14px; }
 
 <script>
 const originalQuestions = [
-{
-q:"1. Uma empresa do ramo de varejo precisa contratar reforço de pessoal por 90 dias para atender ao aumento extraordinário de vendas no final de ano, sem vínculo direto com a tomadora. Caso haja necessidade comprovada de manutenção das condições que ensejaram a contratação, qual é o prazo máximo total que esse trabalhador poderá permanecer prestando serviços sob a égide da Lei nº 6.019/74?",
-options:[
-"180 dias improrrogáveis.",
-"270 dias, somando o prazo inicial e a prorrogação.",
-"2 anos, permitida uma única prorrogação.",
-"90 dias, prorrogáveis por mais 90 dias apenas mediante acordo coletivo."
-],
-answer:1,
-explanation:"Conforme o art. 10, §§ 1º e 2º da Lei nº 6.019/74, o contrato de trabalho temporário não poderá exceder 180 dias, consecutivos ou não, podendo ser prorrogado por até 90 dias quando comprovada a manutenção das condições que o ensejaram. Total: 270 dias."
-},
-{
-q:"2. Um empregado celebrou contrato de trabalho por prazo determinado de 12 meses, sem cláusula assecuratória do direito recíproco de rescisão antecipada. Faltando exatos 4 meses para o término, o empregador decidiu dispensá-lo sem justa causa. Sabendo que o salário mensal do empregado era de R$ 3.000,00, qual o valor da indenização prevista no art. 479 da CLT?",
-options:[
-"R$ 12.000,00.",
-"R$ 6.000,00.",
-"R$ 3.000,00.",
-"Nenhuma indenização, apenas aviso-prévio de 30 dias."
-],
-answer:1,
-explanation:"Pelo art. 479 da CLT, o empregador que rescindir antecipadamente e sem justa causa contrato por prazo determinado, sem cláusula assecuratória, pagará metade da remuneração a que o empregado teria direito até o termo final. 4 × R$ 3.000,00 = R$ 12.000,00; metade = R$ 6.000,00."
-},
-{
-q:"3. Sobre as regras do contrato de trabalho intermitente introduzidas pela Reforma Trabalhista (art. 452-A da CLT), assinale a alternativa correta quanto à convocação e ao período de inatividade.",
-options:[
-"O empregado tem até 48 horas para responder ao chamado, presumindo-se a aceitação no silêncio.",
-"A recusa da oferta pelo empregado caracteriza insubordinação e autoriza justa causa.",
-"O empregador deve convocar o trabalhador com pelo menos três dias corridos de antecedência.",
-"O período de inatividade é considerado tempo à disposição do empregador, sendo vedado prestar serviços a terceiros."
-],
-answer:2,
-explanation:"O art. 452-A, §§ 1º a 5º da CLT estabelece convocação com pelo menos 3 dias corridos de antecedência. O empregado tem 1 dia útil para responder; o silêncio presume recusa. A recusa não descaracteriza a subordinação e o período de inatividade não é tempo à disposição."
-},
-{
-q:"4. Em relação ao regime de teletrabalho ou trabalho remoto regulamentado pelos artigos 75-A a 75-F da CLT, qual situação é expressamente permitida pela legislação trabalhista atual?",
-options:[
-"A alteração do regime presencial para o teletrabalho por ato unilateral exclusivo do empregador.",
-"O comparecimento habitual à empresa para atividades específicas sem descaracterizar o regime.",
-"A integração das utilidades tecnológicas fornecidas pela empresa ao salário do empregado.",
-"A equiparação automática do teletrabalhador ao operador de telemarketing."
-],
-answer:1,
-explanation:"Segundo o art. 75-B, § 1º da CLT, o comparecimento, ainda que de modo habitual, às dependências do empregador para atividades específicas que exijam a presença do empregado não descaracteriza o regime de teletrabalho."
-},
-{
-q:"5. Um empregado que cumpre jornada contratual das 8h às 12h e das 13h às 17h registrou os seguintes horários de ponto em um determinado dia: entrada às 07h56 (-4 min), saída para almoço às 12h01 (+1 min), retorno às 12h56 (-4 min) e saída final às 17h02 (+2 min). À luz do art. 58, § 1º da CLT, como deve ser tratado esse registro?",
-options:[
-"Nenhuma hora extra será paga, pois nenhuma marcação isolada ultrapassou 5 minutos.",
-"Serão computados 11 minutos como horas extras, pois a soma das variações excedeu o limite diário de dez minutos.",
-"Apenas os 2 minutos finais serão pagos, pois minutos anteriores ao início do turno são desconsiderados.",
-"Serão pagos apenas 1 minuto excedente ao limite legal de 10 minutos diários."
-],
-answer:1,
-explanation:"O art. 58, § 1º da CLT estabelece tolerância de até 5 minutos por marcação, observado o limite máximo de 10 minutos diários. Ultrapassado esse limite, a Súmula 366 do TST determina que seja considerada como extra a totalidade do tempo que exceder a jornada normal. No exemplo, são 11 minutos."
-},
-{
-q:"6. No tocante às modalidades de compensação de jornada e banco de horas previstas no art. 59 da CLT, qual distinção jurídica está correta?",
-options:[
-"O banco de horas por acordo individual escrito exige compensação no prazo máximo de seis meses.",
-"A compensação dentro do mesmo mês exige obrigatoriamente convenção coletiva de trabalho.",
-"O banco de horas anual pode ser pactuado por acordo individual tácito.",
-"Em caso de rescisão sem compensação integral, as horas são pagas sem adicional de 50%."
-],
-answer:0,
-explanation:"O art. 59, § 5º da CLT permite banco de horas por acordo individual escrito, com compensação em até 6 meses. O banco anual exige acordo ou convenção coletiva (§ 2º). A compensação dentro do mesmo mês pode ser pactuada por acordo individual tácito ou escrito (§ 6º)."
-},
-{
-q:"7. Uma empresa teve sua linha de produção paralisada por três dias em razão da falta prolongada de energia elétrica provocada pela queda de um raio na subestação municipal. Para repor o tempo perdido, como a empresa poderá exigir a recuperação das horas conforme o art. 61, § 3º da CLT?",
-options:[
-"Prorrogando a jornada em até 4 horas diárias, sem limite anual de dias.",
-"Prorrogando a jornada em até duas horas diárias, por no máximo 45 dias ao ano.",
-"Exigindo trabalho aos domingos sem necessidade de autorização ou comunicação à autoridade competente.",
-"Impondo jornada total de 12 horas diárias durante 60 dias consecutivos."
-],
-answer:1,
-explanation:"O art. 61, § 3º da CLT prevê recuperação de horas em caso de interrupção por causas acidentais ou força maior, mediante prévia autorização da autoridade competente, até 2 horas extras por dia, sem exceder 10 horas de trabalho diárias e por período máximo de 45 dias por ano."
-},
-{
-q:"8. Um trabalhador sujeito à jornada de 8 horas diárias possui direito ao intervalo intrajornada mínimo de 1 hora. Em determinado dia, por necessidade do serviço, usufruiu apenas 25 minutos de intervalo, sem previsão em norma coletiva. De acordo com a redação atual do art. 71, § 4º da CLT, qual é a consequência jurídica para o empregador?",
-options:[
-"Pagamento integral de 1 hora como extra, com natureza salarial.",
-"Pagamento de 35 minutos com acréscimo de 50%, possuindo natureza indenizatória.",
-"Apenas multa administrativa, sem pagamento ao empregado.",
-"Pagamento de 35 minutos com acréscimo de 25%, possuindo natureza salarial."
-],
-answer:1,
-explanation:"Conforme o art. 71, § 4º da CLT, após a Reforma Trabalhista, a concessão parcial do intervalo intrajornada implica pagamento apenas do período suprimido, com acréscimo de 50%, possuindo natureza indenizatória. Neste caso: 60 - 25 = 35 minutos."
-},
-{
-q:"9. Sobre os regimes de sobreaviso e prontidão disciplinados no art. 244 da CLT (aplicáveis aos ferroviários e por analogia a outras categorias), qual alternativa apresenta corretamente a distinção entre os dois institutos?",
-options:[
-"No sobreaviso, a escala máxima é de 12 horas e a remuneração é de 2/3 do salário normal.",
-"Na prontidão, o empregado fica nas dependências da empresa por até 12 horas, recebendo dois terços.",
-"Em ambos os regimes, o empregado recebe 1/3 do salário-hora normal e a escala máxima é de 24 horas.",
-"Na prontidão, o empregado permanece em sua própria casa aguardando chamado por até 24 horas."
-],
-answer:1,
-explanation:"Pelo art. 244, §§ 2º e 3º da CLT: no sobreaviso, o empregado permanece fora das dependências da empresa aguardando chamado, em escala máxima de 24 horas, recebendo 1/3 do salário-hora normal. Na prontidão, permanece nas dependências da empresa, em escala máxima de 12 horas, recebendo 2/3."
-},
-{
-q:"10. Um empregado que trabalha regularmente de segunda-feira a sábado encerra sua jornada no sábado às 18h00. Considerando a somatória do intervalo interjornada mínimo (art. 66 da CLT) com o descanso semanal remunerado (art. 67 da CLT), a partir de que horário esse empregado poderá retornar ao trabalho na segunda-feira sem violar os períodos de repouso?",
-options:[
-"A partir das 18h00 de domingo.",
-"A partir das 00h00 de segunda-feira.",
-"A partir das 05h00 da manhã de segunda-feira.",
-"A partir das 06h00 da manhã de segunda-feira."
-],
-answer:2,
-explanation:"Somam-se as 11 horas consecutivas de intervalo interjornada (art. 66) às 24 horas de descanso semanal remunerado (art. 67), totalizando 35 horas. Contando 35 horas a partir de sábado às 18h00, chega-se a segunda-feira às 05h00."
-},
-  {"q":"11. (Contrato por Prazo Determinado – Hipóteses da CLT) Uma fábrica de roupas decide contratar um engenheiro mecânico exclusivamente para realizar a montagem de uma nova linha de maquinário industrial, serviço que durará 6 meses e não faz parte da atividade permanente da empresa. À luz do art. 443, § 2º da CLT, essa contratação por prazo determinado é:","options":["Nula, pois o contrato por prazo determinado só é admitido para contrato de experiência.","Válida, por se tratar de serviço cuja natureza ou transitoriedade justifica a predeterminação do prazo.","Válida apenas se houver previsão expressa em convenção coletiva de trabalho.","Válida, mas o contrato se converterá automaticamente em indeterminado após 90 dias."],"answer":1,"explanation":"Conforme o art. 443, § 2º, alínea \"a\" da CLT, é válido o contrato por prazo determinado para serviços cuja natureza ou transitoriedade justifiquem a predeterminação do prazo (como a montagem de uma máquina), por serem transitórios em relação à atividade preponderante do empregador."},
-  {"q":"12. (Contrato de Experiência e Prorrogação) João foi admitido por meio de contrato de experiência de 30 dias. Ao final desse período, a empresa prorrogou o contrato por mais 30 dias. Antes de vencer a segunda etapa, a empresa resolveu prorrogar o contrato de experiência por uma terceira vez, por mais 30 dias, totalizando 90 dias. De acordo com os arts. 445 e 451 da CLT, o que acontece com esse contrato?","options":["Permanece como contrato de experiência válido, pois respeitou o teto máximo de 90 dias.","Passa a vigorar sem determinação de prazo (contrato por prazo indeterminado), pois foi prorrogado mais de uma vez.","É nulo de pleno direito, gerando apenas direito ao saldo de salário.","Converte-se em contrato temporário regido pela Lei nº 6.019/74."],"answer":1,"explanation":"O art. 451 da CLT estabelece que o contrato por prazo determinado (incluindo o de experiência, cujo limite é de 90 dias pelo art. 445) só pode ser prorrogado uma única vez. Havendo mais de uma prorrogação, ainda que dentro dos 90 dias, o contrato passa a vigorar por prazo indeterminado."},
-  {"q":"13. (Sucessão de Contratos por Prazo Determinado) Segundo o art. 452 da CLT, considera-se por prazo indeterminado todo contrato que suceder, dentro de determinado prazo, a outro contrato por prazo determinado, salvo se a expiração deste dependeu da execução de serviços especializados ou da realização de certos acontecimentos. Qual é esse prazo legal de intervalo entre um contrato e outro?","options":["30 dias.","90 dias.","6 meses.","1 ano."],"answer":2,"explanation":"Conforme o art. 452 da CLT, considera-se por prazo indeterminado todo contrato que suceder, dentro de 6 (seis) meses, a outro contrato por prazo determinado, ressalvadas as exceções legais."},
-  {"q":"14. (Rescisão Antecipada pelo Empregado no Contrato Determinado) Maria firmou contrato por prazo determinado de 1 ano (sem cláusula assecuratória do direito recíproco de rescisão antecipada). Faltando 2 meses para o término, pediu demissão sem justa causa. De acordo com o art. 480 da CLT, qual é a regra sobre a indenização devida por Maria ao empregador?","options":["Maria pagará automaticamente metade dos salários que receberia até o fim do contrato.","Maria não paga nenhuma indenização em hipótese alguma.","Maria deverá indenizar o empregador pelos prejuízos que desse fato lhe resultarem, limitada essa indenização àquela que seria devida caso o empregador tivesse rescindido antecipadamente.","Maria deverá cumprir aviso-prévio de 30 dias ou pagar multa equivalente a um salário integral."],"answer":2,"explanation":"Pelo art. 480 da CLT, na rescisão antecipada por iniciativa do empregado, ele fica obrigado a indenizar o empregador pelos prejuízos comprovados resultantes do ato, não podendo o valor exceder à metade da remuneração restante (teto da indenização devida pelo empregador no art. 479)."},
-  {"q":"15. (Cláusula Assecuratória do Direito Recíproco de Rescisão Antecipada) Nos contratos por prazo determinado que contiverem cláusula assecuratória do direito recíproco de rescisão antes de expirado o termo ajustado, caso qualquer das partes exerça esse direito, aplicam-se os princípios que regem a rescisão dos contratos:","options":["Temporários (Lei nº 6.019/74).","Por prazo indeterminado (art. 481 da CLT), sendo devido aviso-prévio e não a indenização dos arts. 479/480.","Intermitentes (art. 452-A da CLT), com multa fixa de 50%.","De experiência, com indenização integral dos dias restantes."],"answer":1,"explanation":"Conforme o art. 481 da CLT, havendo cláusula do direito recíproco de rescisão antecipada, aplicam-se as regras da rescisão do contrato por prazo indeterminado (como o aviso-prévio), afastando a indenização dos arts. 479 e 480."},
-  {"q":"16. (Contrato por Prazo Determinado – Lei nº 9.601/98) Sobre o contrato de trabalho por prazo determinado instituído pela Lei nº 9.601/98, assinale a alternativa correta:","options":["Pode ser celebrado por acordo individual escrito para substituir empregados efetivos em férias.","Exige previsão em convenção ou acordo coletivo de trabalho e deve representar acréscimo no número de empregados da empresa.","Permite apenas uma única prorrogação dentro do prazo de 1 ano.","A indenização por rescisão antecipada segue obrigatoriamente a regra da metade dos dias restantes do art. 479 da CLT."],"answer":1,"explanation":"A Lei nº 9.601/98 permite que convenções e acordos coletivos instituam contrato por prazo determinado para qualquer atividade da empresa, desde que decorra de acréscimo no número de empregados (não substituição), com limite de 2 anos, possibilidade de mais de uma prorrogação dentro desse limite e regras de rescisão definidas na CCT ou ACT."},
-  {"q":"17. (Terceirização vs. Trabalho Temporário – Lei nº 6.019/74) Com base na Lei nº 6.019/74 (alterada pelas Leis nº 13.429/2017 e nº 13.467/2017) e nas distinções jurídicas entre terceirização e trabalho temporário, assinale a afirmação correta:","options":["Na terceirização, a empresa contratante pode exercer subordinação direta e exigir pessoalidade dos empregados da prestadora.","A responsabilidade da empresa tomadora de serviços pelas obrigações trabalhistas da prestadora é solidária em qualquer hipótese.","A empresa tomadora de serviços possui responsabilidade subsidiária quanto às obrigações trabalhistas referentes ao período em que ocorrer a prestação de serviços.","A terceirização somente é lícita para atividades-meio da empresa contratante, conforme a Súmula 331 do TST."],"answer":2,"explanation":"Na terceirização (arts. 4º-A e 5º-A da Lei nº 6.019/74), não pode haver subordinação direta nem pessoalidade pela contratante, e a tomadora tem responsabilidade subsidiária. Além disso, a Súmula 331 do TST ficou prejudicada quanto à restrição de atividade-meio/fim pela Reforma Trabalhista."},
-  {"q":"18. (Contrato Intermitente – Verbas e Férias) No contrato de trabalho intermitente (art. 452-A, §§ 4º, 6º e 9º da CLT), após aceita a oferta para o comparecimento ao trabalho, se uma das partes descumprir sem justo motivo, bem como ao final de cada período de prestação de serviço, aplicam-se as seguintes regras:","options":["A parte que descumprir pagará multa de 50% da remuneração que seria devida, no prazo de 30 dias; ao final de cada período, o empregado recebe imediatamente remuneração, férias proporcionais + 1/3, 13º proporcional, RSR e adicionais legais.","Não há multa por descumprimento da convocação, e as férias e o 13º salário são pagos apenas uma vez ao ano, em dezembro.","A multa por descumprimento é de 100% da remuneração, e durante o mês de férias anuais o empregado continua podendo ser convocado pelo mesmo empregador.","O contrato intermitente pode ser celebrado verbalmente e aplica-se inclusive aos aeronautas."],"answer":0,"explanation":"Conforme o art. 452-A da CLT: o contrato exige forma escrita (e não se aplica aos aeronautas); o descumprimento injustificado após o aceite gera multa de 50% em 30 dias (§ 4º); ao final de cada período de serviço, pagam-se imediatamente remuneração, férias proporcionais + 1/3, 13º proporcional, RSR e adicionais (§ 6º); e a cada 12 meses o empregado adquire 1 mês de férias no qual não pode ser convocado pelo mesmo empregador (§ 9º)."},
-  {"q":"19. (Excluídos do Controle de Jornada e Horas Extras – Art. 62 da CLT) De acordo com o art. 62 da CLT, não são abrangidos pelo regime de duração do trabalho (não fazendo jus a horas extras), EXCETO:","options":["Os empregados que exercem atividade externa incompatível com a fixação de horário de trabalho, com anotação na CTPS e no registro de empregados.","Os gerentes, diretores e chefes de departamento ou filial que recebam gratificação de função igual ou superior a 40% do salário efetivo.","Os empregados em regime de teletrabalho que prestam serviço por produção ou tarefa.","Os empregados em regime de teletrabalho que prestam serviço por jornada."],"answer":3,"explanation":"Com a redação dada pela Lei nº 14.442/2022 ao art. 62, III da CLT, apenas os empregados em teletrabalho que prestam serviço por produção ou tarefa estão excluídos do capítulo da duração do trabalho. Quem trabalha em teletrabalho por jornada tem direito a controle de horário e eventuais horas extras."},
-  {"q":"20. (Teletrabalho – Retorno ao Presencial, Prioridade e Despesas) Com base nos artigos 75-B a 75-F da CLT, assinale a alternativa correta sobre o teletrabalho:","options":["A passagem do regime de teletrabalho para o presencial exige mútuo acordo, não podendo ser determinada unilateralmente pelo empregador.","O empregador pode determinar a alteração do teletrabalho para o presencial, garantido prazo de transição mínimo de 15 dias, com registro em aditivo contratual.","Os empregadores devem dar prioridade na alocação em vagas de teletrabalho aos empregados com deficiência e aos que possuam filhos ou criança sob guarda judicial até 6 anos de idade.","O tempo de uso de ferramentas digitais e softwares fora da jornada normal constitui automaticamente regime de sobreaviso."],"answer":1,"explanation":"Pelo art. 75-C, § 2º da CLT, o retorno do teletrabalho ao presencial pode ocorrer por determinação do empregador, garantido prazo mínimo de transição de 15 dias e aditivo contratual. (A prioridade do art. 75-F é para filhos/guarda até 4 anos, e o uso de ferramentas fora da jornada não constitui sobreaviso/prontidão, salvo acordo – art. 75-B, § 5º)."},
-  {"q":"21. (Horas In Itinere – Tempo de Deslocamento) Um empregado reside em área rural não servida por transporte público regular e utiliza condução fornecida gratuitamente pelo empregador para ir e voltar do trabalho, gastando 40 minutos em cada trecho. Com base na redação vigente do art. 58, § 2º da CLT (após a Lei nº 13.467/2017), esse tempo de deslocamento:","options":["É computado integralmente na jornada de trabalho como horas in itinere.","Não será computado na jornada de trabalho, por não ser tempo à disposição do empregador, inclusive quando o transporte for fornecido pelo empregador.","Será computado pela metade na jornada, por se tratar de local de difícil acesso.","Será computado apenas se o empregador cobrar pelo transporte."],"answer":1,"explanation":"Conforme o art. 58, § 2º da CLT (alterado pela Reforma Trabalhista de 2017, que levou ao cancelamento da Súmula 90 do TST), o tempo despendido desde a residência até a efetiva ocupação do posto de trabalho e para o retorno, caminhando ou por qualquer meio de transporte, inclusive o fornecido pelo empregador, não será computado na jornada."},
-  {"q":"22. (Turnos Ininterruptos de Revezamento) Nos termos do art. 7º, XIV da Constituição Federal, qual é a jornada diária prevista para o trabalho realizado em turnos ininterruptos de revezamento?","options":["8 horas diárias, sem possibilidade de alteração.","6 horas diárias, salvo negociação coletiva.","6 horas diárias, podendo ser ampliada para 8 horas por acordo individual tácito.","12 horas de trabalho por 36 horas de descanso."],"answer":1,"explanation":"O art. 7º, XIV da CF assegura jornada de seis horas para o trabalho realizado em turnos ininterruptos de revezamento, salvo negociação coletiva."},
-  {"q":"23. (Trabalho em Regime de Tempo Parcial – Art. 58-A da CLT) De acordo com o art. 58-A da CLT, considera-se trabalho em regime de tempo parcial aquele cuja duração:","options":["Não exceda a 25 horas semanais, vedadas horas suplementares.","Não exceda a 30 horas semanais, sem possibilidade de horas suplementares, ou não exceda a 26 horas semanais, com possibilidade de acréscimo de até 6 horas suplementares semanais.","Não exceda a 36 horas semanais, com até 4 horas extras por semana.","Não exceda a 20 horas semanais, com adicional de 100% nas horas suplementares."],"answer":1,"explanation":"O art. 58-A da CLT (redação da Lei nº 13.467/2017) prevê duas modalidades de tempo parcial: até 30 horas semanais (sem horas suplementares) ou até 26 horas semanais (com acréscimo de até 6 horas suplementares semanais)."},
-  {"q":"24. (Jornada 12 x 36 – Art. 59-A da CLT) Sobre o regime de jornada de 12 horas seguidas de trabalho por 36 horas ininterruptas de descanso (12x36), previsto no art. 59-A da CLT, assinale a alternativa correta:","options":["Somente pode ser estabelecido mediante convenção coletiva de trabalho, sendo nulo o acordo individual.","Os feriados trabalhados nesse regime devem ser sempre pagos em dobro.","Pode ser estabelecido por acordo individual escrito, convenção coletiva ou acordo coletivo, e a remuneração mensal pactuada já abrange os pagamentos devidos pelo descanso semanal remunerado e pelo descanso em feriados.","O intervalo intrajornada não pode ser indenizado, devendo ser obrigatoriamente usufruído de forma integral."],"answer":2,"explanation":"Conforme o art. 59-A e seu parágrafo único da CLT, o regime 12x36 pode ser pactuado por acordo individual escrito, CCT ou ACT, observados ou indenizados os intervalos, e a remuneração mensal abrange DSR e feriados (que são considerados compensados)."},
-  {"q":"25. (Horas Extras por Força Maior e Serviços Inadiáveis – Art. 61 da CLT) Ocorrendo necessidade imperiosa para atender à realização ou conclusão de serviços inadiáveis (ou cuja inexecução possa acarretar prejuízo manifesto) ou por motivo de força maior, o art. 61 da CLT dispõe que:","options":["O excesso de jornada depende de prévio acordo coletivo e a jornada total não pode passar de 10 horas.","O excesso pode ser exigido independentemente de acordo ou convenção coletiva, não podendo o trabalho exceder 12 horas diárias.","A remuneração das horas extras por força maior será obrigatoriamente de no mínimo 50% superior à hora normal.","A imprevidência do empregador caracteriza motivo de força maior para fins de exigência de horas extras."],"answer":1,"explanation":"Pelo art. 61, §§ 1º e 2º da CLT, na força maior e nos serviços inadiáveis, o excesso pode ser exigido independentemente de CCT/ACT, até o limite de 12 horas diárias (8 + 4). Atenção aos detalhes: na força maior, a remuneração da hora excedente não será inferior à hora normal (e nos serviços inadiáveis, mínimo de 25% superior); além disso, a imprevidência do empregador exclui a razão de força maior (art. 501, § 1º)."},
-  {"q":"26. (Controle de Ponto – Obrigatoriedade e Exceção – Art. 74 da CLT) Com as alterações promovidas pela Lei nº 13.874/2019 no art. 74 da CLT, a obrigatoriedade de anotação da hora de entrada e de saída (em registro manual, mecânico ou eletrônico) aplica-se aos estabelecimentos com:","options":["Mais de 10 trabalhadores, sendo vedado o registro de ponto por exceção.","Mais de 20 trabalhadores, sendo permitida a pré-assinalação do período de repouso e a utilização de registro de ponto por exceção mediante acordo individual escrito, CCT ou ACT.","Mais de 50 trabalhadores, exclusivamente por meio eletrônico biométrico.","Qualquer número de trabalhadores, a partir de 1 empregado registrado."],"answer":1,"explanation":"Conforme o art. 74, §§ 2º e 4º da CLT, o controle de ponto é obrigatório para estabelecimentos com mais de 20 trabalhadores, permitida a pré-assinalação do repouso e o registro de ponto por exceção mediante acordo individual escrito, CCT ou ACT."},
-  {"q":"27. (Intervalo Intrajornada – Duração Legal e Negociação Coletiva) Um empregado cumpre jornada diária de 5 horas contínuas. Outro empregado da mesma empresa cumpre jornada diária de 8 horas contínuas. De acordo com o art. 71 e o art. 611-A, III da CLT, quais são os intervalos intrajornada aplicáveis a cada um?","options":["15 minutos obrigatórios para o primeiro; e de 1 a 2 horas para o segundo, podendo ser reduzido até o limite mínimo de 30 minutos por convenção ou acordo coletivo.","Nenhum intervalo para o primeiro; e de 1 a 2 horas para o segundo, irredutível mesmo por norma coletiva.","30 minutos para o primeiro; e de 1 hora para o segundo, que é sempre remunerada e computada na jornada.","15 minutos para o primeiro; e de no máximo 1 hora para o segundo, vedada a ampliação acima de 2 horas mesmo por acordo escrito."],"answer":0,"explanation":"Para jornadas acima de 4h até 6h, o intervalo é de 15 minutos (art. 71, § 1º); para jornadas excedentes de 6h, é de 1 a 2 horas (art. 71, caput), podendo ser reduzido até o mínimo de 30 minutos por CCT ou ACT (art. 611-A, III, que superou a antiga Súmula 437 do TST)."},
-  {"q":"28. (Intervalo Especial – Mecanografia) Em regra, os intervalos intrajornada não são remunerados nem computados na duração do trabalho. Contudo, os slides destacam uma exceção expressa prevista no art. 72 da CLT, referente aos serviços permanentes de mecanografia (datilografia, escrituração ou cálculo), que assegura:","options":["Repouso de 10 minutos a cada 90 minutos de trabalho consecutivo, deduzidos da duração normal do trabalho (remunerados).","Repouso de 15 minutos a cada 2 horas de trabalho, não remunerados.","Repouso de 20 minutos a cada 3 horas de trabalho, sem prejuízo do intervalo de almoço.","Repouso de 10 minutos a cada 60 minutos de trabalho, pagos com adicional de 50%."],"answer":0,"explanation":"O art. 72 da CLT garante intervalo remunerado de 10 minutos a cada 90 minutos de trabalho consecutivo para o pessoal que trabalha com mecanografia."},
-  {"q":"29. (Banco de Horas – Limite Diário e Rescisão Contratual) Sobre o funcionamento do banco de horas previsto no art. 59, §§ 2º e 3º da CLT, assinale a alternativa correta:","options":["No sistema de banco de horas, o empregado pode trabalhar até 12 horas diárias ordinariamente para compensar folgas futuras.","O excesso de horas em um dia não pode ultrapassar o limite máximo de 10 horas diárias; havendo rescisão do contrato sem compensação integral, as horas não compensadas são pagas como extras (acréscimo mínimo de 50%), calculadas sobre o valor da remuneração na data da rescisão.","Havendo rescisão do contrato sem compensação integral, as horas extras pendentes são pagas pelo valor do salário da época em que foram trabalhadas, sem adicional.","O prazo máximo para compensação no banco de horas pactuado por convenção coletiva é de 6 meses."],"answer":1,"explanation":"Pelo art. 59, §§ 2º e 3º da CLT, o banco de horas exige respeito ao limite máximo de 10 horas diárias (8 + 2). Na rescisão sem compensação integral, o trabalhador recebe as horas não compensadas com adicional de no mínimo 50%, calculadas sobre o valor da remuneração na data da rescisão."},
-  {"q":"30. (Trabalho em Feriados e Repouso Semanal – Lei nº 605/49) De acordo com o art. 9º da Lei nº 605/49 e o art. 67 da CLT, o trabalho realizado em dia de repouso semanal remunerado ou em dia feriado civil ou religioso, quando não compensado em outro dia mediante concessão de folga, deve ser:","options":["Remunerado de forma simples, pois já está embutido no salário mensal.","Remunerado com adicional de 25% sobre a hora normal.","Remunerado em dobro.","Compensado obrigatoriamente dentro do prazo de 1 ano, vedado o pagamento em pecúnia."],"answer":2,"explanation":"Conforme o art. 9º da Lei nº 605/49, o trabalho realizado no repouso semanal ou em feriado civil/religioso, desde que não compensado em outro dia de folga, deverá ser remunerado em dobro."},
-  {"q":"31. (Conceito Geral e Acontecimento Suscetível de Previsão Aproximada – Art. 443, § 1º da CLT) Segundo o art. 443, § 1º da CLT, considera-se como de prazo determinado o contrato de trabalho cuja vigência dependa de termo prefixado, da execução de serviços especificados ou ainda da realização de certo acontecimento suscetível de previsão aproximada. Qual situação cotidiana abaixo exemplifica essa hipótese?","options":["Contratação de um vendedor para atuar por tempo indefinido na loja matriz.","Contratação de trabalhadores rurais para o período da colheita da safra de café, cujo encerramento depende do término da colheita.","Contratação de um gerente administrativo sem estipulação de termo final.","Contratação de um aeronauta em regime de trabalho intermitente."],"answer":1,"explanation":"Conforme o art. 443, § 1º da CLT, o contrato por prazo determinado pode ter sua vigência vinculada à realização de certo acontecimento suscetível de previsão aproximada, como uma safra agrícola ou o término de uma obra específica."},
-  {"q":"32. (Atividades Empresariais Transitórias – Art. 443, § 2º, b, da CLT) Uma empresa especializada na organização de feiras agropecuárias e eventos sazonais contrata recepcionistas e montadores exclusivamente para o período do evento. Qual fundamento autoriza o contrato por prazo determinado?","options":["Contrato de experiência para verificar a aptidão dos trabalhadores.","Atividades empresariais de caráter transitório, pois a própria atividade do empregador não é perene e não se prolonga no tempo.","Lei nº 9.601/98, que exige acréscimo permanente no quadro de empregados.","Contrato de trabalho intermitente, por haver alternância de períodos de inatividade."],"answer":1,"explanation":"O art. 443, § 2º, da CLT admite contratos por prazo determinado quando as atividades empresariais possuem caráter transitório, como feiras e eventos sazonais."},
-  {"q":"33. (Contrato de Experiência – Finalidade e Prazo Máximo) Qual é a finalidade legal do contrato de experiência previsto no art. 443, § 2º, c, da CLT, e qual é seu limite máximo de duração estabelecido no art. 445, parágrafo único?","options":["Substituir empregados afastados pelo INSS, com prazo máximo de 180 dias.","Permitir que o empregador verifique as aptidões do empregado para o exercício da função, não podendo exceder 90 dias.","Atender ao acréscimo extraordinário de serviços da empresa, com prazo máximo de 2 anos.","Testar o empregado apenas em atividades externas, com prazo máximo de 45 dias improrrogáveis."],"answer":1,"explanation":"O contrato de experiência destina-se a permitir que o empregador verifique as aptidões do empregado para o exercício da função e não poderá exceder 90 dias."},
-  {"q":"34. (Limite Máximo e Conversão em Prazo Indeterminado – Arts. 445 e 451 da CLT) Uma empresa celebrou contrato por prazo determinado de 1 ano e 6 meses e realizou uma única prorrogação por mais 8 meses. O que ocorre juridicamente?","options":["Continua sendo por prazo determinado até completar 2 anos e 2 meses.","Passa a vigorar como contrato por prazo indeterminado, pois extrapolou o limite máximo legal de 2 anos.","É considerado nulo, devendo ser celebrado um novo contrato de experiência.","Converte-se automaticamente em contrato temporário da Lei nº 6.019/74."],"answer":1,"explanation":"O art. 445 da CLT estabelece o limite máximo de 2 anos para o contrato por prazo determinado. A soma de 18 meses com 8 meses resulta em 26 meses, ultrapassando esse limite legal."},
-  {"q":"35. (Exceção à Regra dos 6 Meses na Sucessão de Contratos – Art. 452 da CLT) Em regra, considera-se por prazo indeterminado o contrato que suceder, dentro de 6 meses, a outro contrato por prazo determinado. Qual é a ressalva expressa no art. 452 da CLT?","options":["Quando o segundo contrato for celebrado verbalmente.","Quando a expiração do contrato anterior dependeu da execução de serviços especializados ou da realização de certos acontecimentos.","Quando o empregado concordar por escrito em abrir mão do vínculo por prazo indeterminado.","Quando se tratar de contrato de experiência na mesma função."],"answer":1,"explanation":"Nos termos do art. 452 da CLT, considera-se por prazo indeterminado o contrato que suceder, dentro de 6 meses, a outro contrato por prazo determinado, salvo se a expiração deste dependeu da execução de serviços especializados ou da realização de certos acontecimentos."},
-  {"q":"36. (Cálculo Prático – Rescisão Antecipada pelo Empregador – Art. 479 da CLT) Lucas foi contratado em regime de experiência por 90 dias, com salário mensal de R$ 2.400,00 (R$ 80,00 por dia). No 60º dia, a empresa o dispensou sem justa causa, sem cláusula assecuratória. Faltavam 30 dias para o término. Qual será a indenização do art. 479 da CLT?","options":["R$ 2.400,00.","R$ 1.200,00.","R$ 4.800,00.","Zero, pois no contrato de experiência não cabe indenização por rescisão antecipada."],"answer":1,"explanation":"O art. 479 da CLT prevê indenização correspondente à metade da remuneração a que o empregado teria direito até o término do contrato. Faltavam 30 dias, equivalentes a R$ 2.400,00; metade corresponde a R$ 1.200,00."},
-  {"q":"37. (Diferença entre CLT e Lei nº 9.601/98 – Prorrogações e Indenização) Comparando o contrato por prazo determinado tradicional da CLT com o contrato por prazo determinado da Lei nº 9.601/98, quais são duas diferenças previstas nesta última modalidade?","options":["Prazo máximo de 5 anos e proibição de negociação coletiva.","Possibilidade de mais de uma prorrogação dentro do limite de 2 anos e definição da indenização por rescisão antecipada pela própria CCT ou ACT.","Exigência de apenas uma prorrogação e multa fixa de 50% prevista no art. 479 da CLT.","Finalidade exclusiva de substituição de empregados em férias e prazo máximo de 90 dias."],"answer":1,"explanation":"Na modalidade da Lei nº 9.601/98, admite-se mais de uma prorrogação dentro do limite máximo de 2 anos, e a indenização por rescisão antecipada será definida pela CCT ou ACT."},
-  {"q":"38. (Trabalho Temporário – Lei nº 6.019/74 – Hipóteses e Vínculo) Uma indústria precisa substituir por 4 meses uma analista financeira efetiva que entrou em licença-maternidade e decide utilizar mão de obra temporária. Qual alternativa está correta?","options":["A contratação é irregular, pois a Lei nº 6.019/74 só permite trabalho temporário para acréscimo extraordinário de serviço.","A contratação é regular, pois existe necessidade transitória de substituição de pessoal permanente, e não existe vínculo de emprego entre a tomadora e os trabalhadores contratados pela empresa de trabalho temporário.","Forma-se vínculo de emprego direto com a empresa tomadora após 90 dias de prestação de serviços.","O trabalhador temporário deve ser contratado diretamente pela indústria, sem intermediação de empresa de trabalho temporário."],"answer":1,"explanation":"A Lei nº 6.019/74 autoriza trabalho temporário para substituição transitória de pessoal permanente ou acréscimo extraordinário de serviços. Em regra, não existe vínculo de emprego entre a tomadora e os trabalhadores contratados pela empresa de trabalho temporário."},
-  {"q":"39. (Dica de Prova – Distinção na Lei nº 6.019/74 entre Temporário e Terceirização) A Lei nº 6.019/74 disciplina tanto o trabalho temporário quanto a prestação de serviços a terceiros. Qual distinção ajuda a identificar os dispositivos legais?","options":["Os artigos com letras, como art. 4º-A, 4º-B e 5º-A, tratam de terceirização, enquanto os artigos sem letras tratam de trabalho temporário.","Os artigos com letras tratam de contrato de experiência, e os artigos sem letras tratam de contrato intermitente.","Apenas os artigos sem letras exigem responsabilidade subsidiária da tomadora.","Não há qualquer diferença entre terceirização e trabalho temporário na Lei nº 6.019/74."],"answer":0,"explanation":"Conforme a distinção apresentada no material, os artigos com letras, como 4º-A, 4º-B e 5º-A, tratam de terceirização; os dispositivos sem letras tratam de trabalho temporário."},
-  {"q":"40. (Regra Geral vs. Exceção nos Contratos de Trabalho) Qual modalidade contratual constitui a regra geral no Direito do Trabalho brasileiro, presumindo-se celebrada quando não houver estipulação expressa e válida em sentido contrário?","options":["Contrato de trabalho por prazo determinado.","Contrato de trabalho por prestação de trabalho intermitente.","Contrato de trabalho por prazo indeterminado, que não contém determinação de sua vigência e terá validade até que ocorra uma causa definitiva de extinção.","Contrato de trabalho temporário."],"answer":2,"explanation":"O contrato por prazo indeterminado é a regra geral no Direito do Trabalho. Os contratos a termo e intermitente são exceções que dependem do preenchimento de requisitos legais específicos."}
-];
+  {
+    "q": "1. Uma empresa do ramo de varejo precisa contratar reforço de pessoal por 90 dias para atender ao aumento extraordinário de vendas no final de ano, sem vínculo direto com a tomadora. Caso haja necessidade comprovada de manutenção das condições que ensejaram a contratação, qual é o prazo máximo total que esse trabalhador poderá permanecer prestando serviços sob a égide da Lei nº 6.019/74?",
+    "options": [
+      "180 dias improrrogáveis.",
+      "270 dias, somando o prazo inicial e a prorrogação.",
+      "2 anos, permitida uma única prorrogação.",
+      "90 dias, prorrogáveis por mais 90 dias apenas mediante acordo coletivo."
+    ],
+    "answer": 1,
+    "explanation": "Conforme o art. 10, §§ 1º e 2º da Lei nº 6.019/74, o contrato de trabalho temporário não poderá exceder 180 dias, consecutivos ou não, podendo ser prorrogado por até 90 dias quando comprovada a manutenção das condições que o ensejaram. Total: 270 dias."
+  },
+  {
+    "q": "2. Um empregado celebrou contrato de trabalho por prazo determinado de 12 meses, sem cláusula assecuratória do direito recíproco de rescisão antecipada. Faltando exatos 4 meses para o término, o empregador decidiu dispensá-lo sem justa causa. Sabendo que o salário mensal do empregado era de R$ 3.000,00, qual o valor da indenização prevista no art. 479 da CLT?",
+    "options": [
+      "R$ 12.000,00.",
+      "R$ 6.000,00.",
+      "R$ 3.000,00.",
+      "Nenhuma indenização, apenas aviso-prévio de 30 dias."
+    ],
+    "answer": 1,
+    "explanation": "Pelo art. 479 da CLT, o empregador que rescindir antecipadamente e sem justa causa contrato por prazo determinado, sem cláusula assecuratória, pagará metade da remuneração a que o empregado teria direito até o termo final. 4 × R$ 3.000,00 = R$ 12.000,00; metade = R$ 6.000,00."
+  },
+  {
+    "q": "3. Sobre as regras do contrato de trabalho intermitente introduzidas pela Reforma Trabalhista (art. 452-A da CLT), assinale a alternativa correta quanto à convocação e ao período de inatividade.",
+    "options": [
+      "O empregado tem até 48 horas para responder ao chamado, presumindo-se a aceitação no silêncio.",
+      "A recusa da oferta pelo empregado caracteriza insubordinação e autoriza justa causa.",
+      "O empregador deve convocar o trabalhador com pelo menos três dias corridos de antecedência.",
+      "O período de inatividade é considerado tempo à disposição do empregador, sendo vedado prestar serviços a terceiros."
+    ],
+    "answer": 2,
+    "explanation": "O art. 452-A, §§ 1º a 5º da CLT estabelece convocação com pelo menos 3 dias corridos de antecedência. O empregado tem 1 dia útil para responder; o silêncio presume recusa. A recusa não descaracteriza a subordinação e o período de inatividade não é tempo à disposição."
+  },
+  {
+    "q": "4. Em relação ao regime de teletrabalho ou trabalho remoto regulamentado pelos artigos 75-A a 75-F da CLT, qual situação é expressamente permitida pela legislação trabalhista atual?",
+    "options": [
+      "A alteração do regime presencial para o teletrabalho por ato unilateral exclusivo do empregador.",
+      "O comparecimento habitual à empresa para atividades específicas sem descaracterizar o regime.",
+      "A integração das utilidades tecnológicas fornecidas pela empresa ao salário do empregado.",
+      "A equiparação automática do teletrabalhador ao operador de telemarketing."
+    ],
+    "answer": 1,
+    "explanation": "Segundo o art. 75-B, § 1º da CLT, o comparecimento, ainda que de modo habitual, às dependências do empregador para atividades específicas que exijam a presença do empregado não descaracteriza o regime de teletrabalho."
+  },
+  {
+    "q": "5. Um empregado que cumpre jornada contratual das 8h às 12h e das 13h às 17h registrou os seguintes horários de ponto em um determinado dia: entrada às 07h56 (-4 min), saída para almoço às 12h01 (+1 min), retorno às 12h56 (-4 min) e saída final às 17h02 (+2 min). À luz do art. 58, § 1º da CLT, como deve ser tratado esse registro?",
+    "options": [
+      "Nenhuma hora extra será paga, pois nenhuma marcação isolada ultrapassou 5 minutos.",
+      "Serão computados 11 minutos como horas extras, pois a soma das variações excedeu o limite diário de dez minutos.",
+      "Apenas os 2 minutos finais serão pagos, pois minutos anteriores ao início do turno são desconsiderados.",
+      "Serão pagos apenas 1 minuto excedente ao limite legal de 10 minutos diários."
+    ],
+    "answer": 1,
+    "explanation": "O art. 58, § 1º da CLT estabelece tolerância de até 5 minutos por marcação, observado o limite máximo de 10 minutos diários. Ultrapassado esse limite, a Súmula 366 do TST determina que seja considerada como extra a totalidade do tempo que exceder a jornada normal. No exemplo, são 11 minutos."
+  },
+  {
+    "q": "6. No tocante às modalidades de compensação de jornada e banco de horas previstas no art. 59 da CLT, qual distinção jurídica está correta?",
+    "options": [
+      "O banco de horas por acordo individual escrito exige compensação no prazo máximo de seis meses.",
+      "A compensação dentro do mesmo mês exige obrigatoriamente convenção coletiva de trabalho.",
+      "O banco de horas anual pode ser pactuado por acordo individual tácito.",
+      "Em caso de rescisão sem compensação integral, as horas são pagas sem adicional de 50%."
+    ],
+    "answer": 0,
+    "explanation": "O art. 59, § 5º da CLT permite banco de horas por acordo individual escrito, com compensação em até 6 meses. O banco anual exige acordo ou convenção coletiva (§ 2º). A compensação dentro do mesmo mês pode ser pactuada por acordo individual tácito ou escrito (§ 6º)."
+  },
+  {
+    "q": "7. Uma empresa teve sua linha de produção paralisada por três dias em razão da falta prolongada de energia elétrica provocada pela queda de um raio na subestação municipal. Para repor o tempo perdido, como a empresa poderá exigir a recuperação das horas conforme o art. 61, § 3º da CLT?",
+    "options": [
+      "Prorrogando a jornada em até 4 horas diárias, sem limite anual de dias.",
+      "Prorrogando a jornada em até duas horas diárias, por no máximo 45 dias ao ano.",
+      "Exigindo trabalho aos domingos sem necessidade de autorização ou comunicação à autoridade competente.",
+      "Impondo jornada total de 12 horas diárias durante 60 dias consecutivos."
+    ],
+    "answer": 1,
+    "explanation": "O art. 61, § 3º da CLT prevê recuperação de horas em caso de interrupção por causas acidentais ou força maior, mediante prévia autorização da autoridade competente, até 2 horas extras por dia, sem exceder 10 horas de trabalho diárias e por período máximo de 45 dias por ano."
+  },
+  {
+    "q": "8. Um trabalhador sujeito à jornada de 8 horas diárias possui direito ao intervalo intrajornada mínimo de 1 hora. Em determinado dia, por necessidade do serviço, usufruiu apenas 25 minutos de intervalo, sem previsão em norma coletiva. De acordo com a redação atual do art. 71, § 4º da CLT, qual é a consequência jurídica para o empregador?",
+    "options": [
+      "Pagamento integral de 1 hora como extra, com natureza salarial.",
+      "Pagamento de 35 minutos com acréscimo de 50%, possuindo natureza indenizatória.",
+      "Apenas multa administrativa, sem pagamento ao empregado.",
+      "Pagamento de 35 minutos com acréscimo de 25%, possuindo natureza salarial."
+    ],
+    "answer": 1,
+    "explanation": "Conforme o art. 71, § 4º da CLT, após a Reforma Trabalhista, a concessão parcial do intervalo intrajornada implica pagamento apenas do período suprimido, com acréscimo de 50%, possuindo natureza indenizatória. Neste caso: 60 - 25 = 35 minutos."
+  },
+  {
+    "q": "9. Sobre os regimes de sobreaviso e prontidão disciplinados no art. 244 da CLT (aplicáveis aos ferroviários e por analogia a outras categorias), qual alternativa apresenta corretamente a distinção entre os dois institutos?",
+    "options": [
+      "No sobreaviso, a escala máxima é de 12 horas e a remuneração é de 2/3 do salário normal.",
+      "Na prontidão, o empregado fica nas dependências da empresa por até 12 horas, recebendo dois terços.",
+      "Em ambos os regimes, o empregado recebe 1/3 do salário-hora normal e a escala máxima é de 24 horas.",
+      "Na prontidão, o empregado permanece em sua própria casa aguardando chamado por até 24 horas."
+    ],
+    "answer": 1,
+    "explanation": "Pelo art. 244, §§ 2º e 3º da CLT: no sobreaviso, o empregado permanece fora das dependências da empresa aguardando chamado, em escala máxima de 24 horas, recebendo 1/3 do salário-hora normal. Na prontidão, permanece nas dependências da empresa, em escala máxima de 12 horas, recebendo 2/3."
+  },
+  {
+    "q": "10. Um empregado que trabalha regularmente de segunda-feira a sábado encerra sua jornada no sábado às 18h00. Considerando a somatória do intervalo interjornada mínimo (art. 66 da CLT) com o descanso semanal remunerado (art. 67 da CLT), a partir de que horário esse empregado poderá retornar ao trabalho na segunda-feira sem violar os períodos de repouso?",
+    "options": [
+      "A partir das 18h00 de domingo.",
+      "A partir das 00h00 de segunda-feira.",
+      "A partir das 05h00 da manhã de segunda-feira.",
+      "A partir das 06h00 da manhã de segunda-feira."
+    ],
+    "answer": 2,
+    "explanation": "Somam-se as 11 horas consecutivas de intervalo interjornada (art. 66) às 24 horas de descanso semanal remunerado (art. 67), totalizando 35 horas. Contando 35 horas a partir de sábado às 18h00, chega-se a segunda-feira às 05h00."
+  },
+  {
+    "q": "11. (Contrato por Prazo Determinado – Hipóteses da CLT) Uma fábrica de roupas decide contratar um engenheiro mecânico exclusivamente para realizar a montagem de uma nova linha de maquinário industrial, serviço que durará 6 meses e não faz parte da atividade permanente da empresa. À luz do art. 443, § 2º da CLT, essa contratação por prazo determinado é:",
+    "options": [
+      "Nula, pois o contrato por prazo determinado só é admitido para contrato de experiência.",
+      "Válida, por se tratar de serviço cuja natureza ou transitoriedade justifica a predeterminação do prazo.",
+      "Válida apenas se houver previsão expressa em convenção coletiva de trabalho.",
+      "Válida, mas o contrato se converterá automaticamente em indeterminado após 90 dias."
+    ],
+    "answer": 1,
+    "explanation": "Conforme o art. 443, § 2º, alínea \"a\" da CLT, é válido o contrato por prazo determinado para serviços cuja natureza ou transitoriedade justifiquem a predeterminação do prazo (como a montagem de uma máquina), por serem transitórios em relação à atividade preponderante do empregador."
+  },
+  {
+    "q": "12. (Contrato de Experiência e Prorrogação) João foi admitido por meio de contrato de experiência de 30 dias. Ao final desse período, a empresa prorrogou o contrato por mais 30 dias. Antes de vencer a segunda etapa, a empresa resolveu prorrogar o contrato de experiência por uma terceira vez, por mais 30 dias, totalizando 90 dias. De acordo com os arts. 445 e 451 da CLT, o que acontece com esse contrato?",
+    "options": [
+      "Permanece como contrato de experiência válido, pois respeitou o teto máximo de 90 dias.",
+      "Passa a vigorar sem determinação de prazo (contrato por prazo indeterminado), pois foi prorrogado mais de uma vez.",
+      "É nulo de pleno direito, gerando apenas direito ao saldo de salário.",
+      "Converte-se em contrato temporário regido pela Lei nº 6.019/74."
+    ],
+    "answer": 1,
+    "explanation": "O art. 451 da CLT estabelece que o contrato por prazo determinado (incluindo o de experiência, cujo limite é de 90 dias pelo art. 445) só pode ser prorrogado uma única vez. Havendo mais de uma prorrogação, ainda que dentro dos 90 dias, o contrato passa a vigorar por prazo indeterminado."
+  },
+  {
+    "q": "13. (Sucessão de Contratos por Prazo Determinado) Segundo o art. 452 da CLT, considera-se por prazo indeterminado todo contrato que suceder, dentro de determinado prazo, a outro contrato por prazo determinado, salvo se a expiração deste dependeu da execução de serviços especializados ou da realização de certos acontecimentos. Qual é esse prazo legal de intervalo entre um contrato e outro?",
+    "options": [
+      "30 dias.",
+      "90 dias.",
+      "6 meses.",
+      "1 ano."
+    ],
+    "answer": 2,
+    "explanation": "Conforme o art. 452 da CLT, considera-se por prazo indeterminado todo contrato que suceder, dentro de 6 (seis) meses, a outro contrato por prazo determinado, ressalvadas as exceções legais."
+  },
+  {
+    "q": "14. (Rescisão Antecipada pelo Empregado no Contrato Determinado) Maria firmou contrato por prazo determinado de 1 ano (sem cláusula assecuratória do direito recíproco de rescisão antecipada). Faltando 2 meses para o término, pediu demissão sem justa causa. De acordo com o art. 480 da CLT, qual é a regra sobre a indenização devida por Maria ao empregador?",
+    "options": [
+      "Maria pagará automaticamente metade dos salários que receberia até o fim do contrato.",
+      "Maria não paga nenhuma indenização em hipótese alguma.",
+      "Maria deverá indenizar o empregador pelos prejuízos que desse fato lhe resultarem, limitada essa indenização àquela que seria devida caso o empregador tivesse rescindido antecipadamente.",
+      "Maria deverá cumprir aviso-prévio de 30 dias ou pagar multa equivalente a um salário integral."
+    ],
+    "answer": 2,
+    "explanation": "Pelo art. 480 da CLT, na rescisão antecipada por iniciativa do empregado, ele fica obrigado a indenizar o empregador pelos prejuízos comprovados resultantes do ato, não podendo o valor exceder à metade da remuneração restante (teto da indenização devida pelo empregador no art. 479)."
+  },
+  {
+    "q": "15. (Cláusula Assecuratória do Direito Recíproco de Rescisão Antecipada) Nos contratos por prazo determinado que contiverem cláusula assecuratória do direito recíproco de rescisão antes de expirado o termo ajustado, caso qualquer das partes exerça esse direito, aplicam-se os princípios que regem a rescisão dos contratos:",
+    "options": [
+      "Temporários (Lei nº 6.019/74).",
+      "Por prazo indeterminado (art. 481 da CLT), sendo devido aviso-prévio e não a indenização dos arts. 479/480.",
+      "Intermitentes (art. 452-A da CLT), com multa fixa de 50%.",
+      "De experiência, com indenização integral dos dias restantes."
+    ],
+    "answer": 1,
+    "explanation": "Conforme o art. 481 da CLT, havendo cláusula do direito recíproco de rescisão antecipada, aplicam-se as regras da rescisão do contrato por prazo indeterminado (como o aviso-prévio), afastando a indenização dos arts. 479 e 480."
+  },
+  {
+    "q": "16. (Contrato por Prazo Determinado – Lei nº 9.601/98) Sobre o contrato de trabalho por prazo determinado instituído pela Lei nº 9.601/98, assinale a alternativa correta:",
+    "options": [
+      "Pode ser celebrado por acordo individual escrito para substituir empregados efetivos em férias.",
+      "Exige previsão em convenção ou acordo coletivo de trabalho e deve representar acréscimo no número de empregados da empresa.",
+      "Permite apenas uma única prorrogação dentro do prazo de 1 ano.",
+      "A indenização por rescisão antecipada segue obrigatoriamente a regra da metade dos dias restantes do art. 479 da CLT."
+    ],
+    "answer": 1,
+    "explanation": "A Lei nº 9.601/98 permite que convenções e acordos coletivos instituam contrato por prazo determinado para qualquer atividade da empresa, desde que decorra de acréscimo no número de empregados (não substituição), com limite de 2 anos, possibilidade de mais de uma prorrogação dentro desse limite e regras de rescisão definidas na CCT ou ACT."
+  },
+  {
+    "q": "17. (Terceirização vs. Trabalho Temporário – Lei nº 6.019/74) Com base na Lei nº 6.019/74 (alterada pelas Leis nº 13.429/2017 e nº 13.467/2017) e nas distinções jurídicas entre terceirização e trabalho temporário, assinale a afirmação correta:",
+    "options": [
+      "Na terceirização, a empresa contratante pode exercer subordinação direta e exigir pessoalidade dos empregados da prestadora.",
+      "A responsabilidade da empresa tomadora de serviços pelas obrigações trabalhistas da prestadora é solidária em qualquer hipótese.",
+      "A empresa tomadora de serviços possui responsabilidade subsidiária quanto às obrigações trabalhistas referentes ao período em que ocorrer a prestação de serviços.",
+      "A terceirização somente é lícita para atividades-meio da empresa contratante, conforme a Súmula 331 do TST."
+    ],
+    "answer": 2,
+    "explanation": "Na terceirização (arts. 4º-A e 5º-A da Lei nº 6.019/74), não pode haver subordinação direta nem pessoalidade pela contratante, e a tomadora tem responsabilidade subsidiária. Além disso, a Súmula 331 do TST ficou prejudicada quanto à restrição de atividade-meio/fim pela Reforma Trabalhista."
+  },
+  {
+    "q": "18. (Contrato Intermitente – Verbas e Férias) No contrato de trabalho intermitente (art. 452-A, §§ 4º, 6º e 9º da CLT), após aceita a oferta para o comparecimento ao trabalho, se uma das partes descumprir sem justo motivo, bem como ao final de cada período de prestação de serviço, aplicam-se as seguintes regras:",
+    "options": [
+      "A parte que descumprir pagará multa de 50% da remuneração que seria devida, no prazo de 30 dias; ao final de cada período, o empregado recebe imediatamente remuneração, férias proporcionais + 1/3, 13º proporcional, RSR e adicionais legais.",
+      "Não há multa por descumprimento da convocação, e as férias e o 13º salário são pagos apenas uma vez ao ano, em dezembro.",
+      "A multa por descumprimento é de 100% da remuneração, e durante o mês de férias anuais o empregado continua podendo ser convocado pelo mesmo empregador.",
+      "O contrato intermitente pode ser celebrado verbalmente e aplica-se inclusive aos aeronautas."
+    ],
+    "answer": 0,
+    "explanation": "Conforme o art. 452-A da CLT: o contrato exige forma escrita (e não se aplica aos aeronautas); o descumprimento injustificado após o aceite gera multa de 50% em 30 dias (§ 4º); ao final de cada período de serviço, pagam-se imediatamente remuneração, férias proporcionais + 1/3, 13º proporcional, RSR e adicionais (§ 6º); e a cada 12 meses o empregado adquire 1 mês de férias no qual não pode ser convocado pelo mesmo empregador (§ 9º)."
+  },
+  {
+    "q": "19. (Excluídos do Controle de Jornada e Horas Extras – Art. 62 da CLT) De acordo com o art. 62 da CLT, não são abrangidos pelo regime de duração do trabalho (não fazendo jus a horas extras), EXCETO:",
+    "options": [
+      "Os empregados que exercem atividade externa incompatível com a fixação de horário de trabalho, com anotação na CTPS e no registro de empregados.",
+      "Os gerentes, diretores e chefes de departamento ou filial que recebam gratificação de função igual ou superior a 40% do salário efetivo.",
+      "Os empregados em regime de teletrabalho que prestam serviço por produção ou tarefa.",
+      "Os empregados em regime de teletrabalho que prestam serviço por jornada."
+    ],
+    "answer": 3,
+    "explanation": "Com a redação dada pela Lei nº 14.442/2022 ao art. 62, III da CLT, apenas os empregados em teletrabalho que prestam serviço por produção ou tarefa estão excluídos do capítulo da duração do trabalho. Quem trabalha em teletrabalho por jornada tem direito a controle de horário e eventuais horas extras."
+  },
+  {
+    "q": "20. (Teletrabalho – Retorno ao Presencial, Prioridade e Despesas) Com base nos artigos 75-B a 75-F da CLT, assinale a alternativa correta sobre o teletrabalho:",
+    "options": [
+      "A passagem do regime de teletrabalho para o presencial exige mútuo acordo, não podendo ser determinada unilateralmente pelo empregador.",
+      "O empregador pode determinar a alteração do teletrabalho para o presencial, garantido prazo de transição mínimo de 15 dias, com registro em aditivo contratual.",
+      "Os empregadores devem dar prioridade na alocação em vagas de teletrabalho aos empregados com deficiência e aos que possuam filhos ou criança sob guarda judicial até 6 anos de idade.",
+      "O tempo de uso de ferramentas digitais e softwares fora da jornada normal constitui automaticamente regime de sobreaviso."
+    ],
+    "answer": 1,
+    "explanation": "Pelo art. 75-C, § 2º da CLT, o retorno do teletrabalho ao presencial pode ocorrer por determinação do empregador, garantido prazo mínimo de transição de 15 dias e aditivo contratual. (A prioridade do art. 75-F é para filhos/guarda até 4 anos, e o uso de ferramentas fora da jornada não constitui sobreaviso/prontidão, salvo acordo – art. 75-B, § 5º)."
+  },
+  {
+    "q": "21. (Horas In Itinere – Tempo de Deslocamento) Um empregado reside em área rural não servida por transporte público regular e utiliza condução fornecida gratuitamente pelo empregador para ir e voltar do trabalho, gastando 40 minutos em cada trecho. Com base na redação vigente do art. 58, § 2º da CLT (após a Lei nº 13.467/2017), esse tempo de deslocamento:",
+    "options": [
+      "É computado integralmente na jornada de trabalho como horas in itinere.",
+      "Não será computado na jornada de trabalho, por não ser tempo à disposição do empregador, inclusive quando o transporte for fornecido pelo empregador.",
+      "Será computado pela metade na jornada, por se tratar de local de difícil acesso.",
+      "Será computado apenas se o empregador cobrar pelo transporte."
+    ],
+    "answer": 1,
+    "explanation": "Conforme o art. 58, § 2º da CLT (alterado pela Reforma Trabalhista de 2017, que levou ao cancelamento da Súmula 90 do TST), o tempo despendido desde a residência até a efetiva ocupação do posto de trabalho e para o retorno, caminhando ou por qualquer meio de transporte, inclusive o fornecido pelo empregador, não será computado na jornada."
+  },
+  {
+    "q": "22. (Turnos Ininterruptos de Revezamento) Nos termos do art. 7º, XIV da Constituição Federal, qual é a jornada diária prevista para o trabalho realizado em turnos ininterruptos de revezamento?",
+    "options": [
+      "8 horas diárias, sem possibilidade de alteração.",
+      "6 horas diárias, salvo negociação coletiva.",
+      "6 horas diárias, podendo ser ampliada para 8 horas por acordo individual tácito.",
+      "12 horas de trabalho por 36 horas de descanso."
+    ],
+    "answer": 1,
+    "explanation": "O art. 7º, XIV da CF assegura jornada de seis horas para o trabalho realizado em turnos ininterruptos de revezamento, salvo negociação coletiva."
+  },
+  {
+    "q": "23. (Trabalho em Regime de Tempo Parcial – Art. 58-A da CLT) De acordo com o art. 58-A da CLT, considera-se trabalho em regime de tempo parcial aquele cuja duração:",
+    "options": [
+      "Não exceda a 25 horas semanais, vedadas horas suplementares.",
+      "Não exceda a 30 horas semanais, sem possibilidade de horas suplementares, ou não exceda a 26 horas semanais, com possibilidade de acréscimo de até 6 horas suplementares semanais.",
+      "Não exceda a 36 horas semanais, com até 4 horas extras por semana.",
+      "Não exceda a 20 horas semanais, com adicional de 100% nas horas suplementares."
+    ],
+    "answer": 1,
+    "explanation": "O art. 58-A da CLT (redação da Lei nº 13.467/2017) prevê duas modalidades de tempo parcial: até 30 horas semanais (sem horas suplementares) ou até 26 horas semanais (com acréscimo de até 6 horas suplementares semanais)."
+  },
+  {
+    "q": "24. (Jornada 12 x 36 – Art. 59-A da CLT) Sobre o regime de jornada de 12 horas seguidas de trabalho por 36 horas ininterruptas de descanso (12x36), previsto no art. 59-A da CLT, assinale a alternativa correta:",
+    "options": [
+      "Somente pode ser estabelecido mediante convenção coletiva de trabalho, sendo nulo o acordo individual.",
+      "Os feriados trabalhados nesse regime devem ser sempre pagos em dobro.",
+      "Pode ser estabelecido por acordo individual escrito, convenção coletiva ou acordo coletivo, e a remuneração mensal pactuada já abrange os pagamentos devidos pelo descanso semanal remunerado e pelo descanso em feriados.",
+      "O intervalo intrajornada não pode ser indenizado, devendo ser obrigatoriamente usufruído de forma integral."
+    ],
+    "answer": 2,
+    "explanation": "Conforme o art. 59-A e seu parágrafo único da CLT, o regime 12x36 pode ser pactuado por acordo individual escrito, CCT ou ACT, observados ou indenizados os intervalos, e a remuneração mensal abrange DSR e feriados (que são considerados compensados)."
+  },
+  {
+    "q": "25. (Horas Extras por Força Maior e Serviços Inadiáveis – Art. 61 da CLT) Ocorrendo necessidade imperiosa para atender à realização ou conclusão de serviços inadiáveis (ou cuja inexecução possa acarretar prejuízo manifesto) ou por motivo de força maior, o art. 61 da CLT dispõe que:",
+    "options": [
+      "O excesso de jornada depende de prévio acordo coletivo e a jornada total não pode passar de 10 horas.",
+      "O excesso pode ser exigido independentemente de acordo ou convenção coletiva, não podendo o trabalho exceder 12 horas diárias.",
+      "A remuneração das horas extras por força maior será obrigatoriamente de no mínimo 50% superior à hora normal.",
+      "A imprevidência do empregador caracteriza motivo de força maior para fins de exigência de horas extras."
+    ],
+    "answer": 1,
+    "explanation": "Pelo art. 61, §§ 1º e 2º da CLT, na força maior e nos serviços inadiáveis, o excesso pode ser exigido independentemente de CCT/ACT, até o limite de 12 horas diárias (8 + 4). Atenção aos detalhes: na força maior, a remuneração da hora excedente não será inferior à hora normal (e nos serviços inadiáveis, mínimo de 25% superior); além disso, a imprevidência do empregador exclui a razão de força maior (art. 501, § 1º)."
+  },
+  {
+    "q": "26. (Controle de Ponto – Obrigatoriedade e Exceção – Art. 74 da CLT) Com as alterações promovidas pela Lei nº 13.874/2019 no art. 74 da CLT, a obrigatoriedade de anotação da hora de entrada e de saída (em registro manual, mecânico ou eletrônico) aplica-se aos estabelecimentos com:",
+    "options": [
+      "Mais de 10 trabalhadores, sendo vedado o registro de ponto por exceção.",
+      "Mais de 20 trabalhadores, sendo permitida a pré-assinalação do período de repouso e a utilização de registro de ponto por exceção mediante acordo individual escrito, CCT ou ACT.",
+      "Mais de 50 trabalhadores, exclusivamente por meio eletrônico biométrico.",
+      "Qualquer número de trabalhadores, a partir de 1 empregado registrado."
+    ],
+    "answer": 1,
+    "explanation": "Conforme o art. 74, §§ 2º e 4º da CLT, o controle de ponto é obrigatório para estabelecimentos com mais de 20 trabalhadores, permitida a pré-assinalação do repouso e o registro de ponto por exceção mediante acordo individual escrito, CCT ou ACT."
+  },
+  {
+    "q": "27. (Intervalo Intrajornada – Duração Legal e Negociação Coletiva) Um empregado cumpre jornada diária de 5 horas contínuas. Outro empregado da mesma empresa cumpre jornada diária de 8 horas contínuas. De acordo com o art. 71 e o art. 611-A, III da CLT, quais são os intervalos intrajornada aplicáveis a cada um?",
+    "options": [
+      "15 minutos obrigatórios para o primeiro; e de 1 a 2 horas para o segundo, podendo ser reduzido até o limite mínimo de 30 minutos por convenção ou acordo coletivo.",
+      "Nenhum intervalo para o primeiro; e de 1 a 2 horas para o segundo, irredutível mesmo por norma coletiva.",
+      "30 minutos para o primeiro; e de 1 hora para o segundo, que é sempre remunerada e computada na jornada.",
+      "15 minutos para o primeiro; e de no máximo 1 hora para o segundo, vedada a ampliação acima de 2 horas mesmo por acordo escrito."
+    ],
+    "answer": 0,
+    "explanation": "Para jornadas acima de 4h até 6h, o intervalo é de 15 minutos (art. 71, § 1º); para jornadas excedentes de 6h, é de 1 a 2 horas (art. 71, caput), podendo ser reduzido até o mínimo de 30 minutos por CCT ou ACT (art. 611-A, III, que superou a antiga Súmula 437 do TST)."
+  },
+  {
+    "q": "28. (Intervalo Especial – Mecanografia) Em regra, os intervalos intrajornada não são remunerados nem computados na duração do trabalho. Contudo, os slides destacam uma exceção expressa prevista no art. 72 da CLT, referente aos serviços permanentes de mecanografia (datilografia, escrituração ou cálculo), que assegura:",
+    "options": [
+      "Repouso de 10 minutos a cada 90 minutos de trabalho consecutivo, deduzidos da duração normal do trabalho (remunerados).",
+      "Repouso de 15 minutos a cada 2 horas de trabalho, não remunerados.",
+      "Repouso de 20 minutos a cada 3 horas de trabalho, sem prejuízo do intervalo de almoço.",
+      "Repouso de 10 minutos a cada 60 minutos de trabalho, pagos com adicional de 50%."
+    ],
+    "answer": 0,
+    "explanation": "O art. 72 da CLT garante intervalo remunerado de 10 minutos a cada 90 minutos de trabalho consecutivo para o pessoal que trabalha com mecanografia."
+  },
+  {
+    "q": "29. (Banco de Horas – Limite Diário e Rescisão Contratual) Sobre o funcionamento do banco de horas previsto no art. 59, §§ 2º e 3º da CLT, assinale a alternativa correta:",
+    "options": [
+      "No sistema de banco de horas, o empregado pode trabalhar até 12 horas diárias ordinariamente para compensar folgas futuras.",
+      "O excesso de horas em um dia não pode ultrapassar o limite máximo de 10 horas diárias; havendo rescisão do contrato sem compensação integral, as horas não compensadas são pagas como extras (acréscimo mínimo de 50%), calculadas sobre o valor da remuneração na data da rescisão.",
+      "Havendo rescisão do contrato sem compensação integral, as horas extras pendentes são pagas pelo valor do salário da época em que foram trabalhadas, sem adicional.",
+      "O prazo máximo para compensação no banco de horas pactuado por convenção coletiva é de 6 meses."
+    ],
+    "answer": 1,
+    "explanation": "Pelo art. 59, §§ 2º e 3º da CLT, o banco de horas exige respeito ao limite máximo de 10 horas diárias (8 + 2). Na rescisão sem compensação integral, o trabalhador recebe as horas não compensadas com adicional de no mínimo 50%, calculadas sobre o valor da remuneração na data da rescisão."
+  },
+  {
+    "q": "30. (Trabalho em Feriados e Repouso Semanal – Lei nº 605/49) De acordo com o art. 9º da Lei nº 605/49 e o art. 67 da CLT, o trabalho realizado em dia de repouso semanal remunerado ou em dia feriado civil ou religioso, quando não compensado em outro dia mediante concessão de folga, deve ser:",
+    "options": [
+      "Remunerado de forma simples, pois já está embutido no salário mensal.",
+      "Remunerado com adicional de 25% sobre a hora normal.",
+      "Remunerado em dobro.",
+      "Compensado obrigatoriamente dentro do prazo de 1 ano, vedado o pagamento em pecúnia."
+    ],
+    "answer": 2,
+    "explanation": "Conforme o art. 9º da Lei nº 605/49, o trabalho realizado no repouso semanal ou em feriado civil/religioso, desde que não compensado em outro dia de folga, deverá ser remunerado em dobro."
+  },
+  {
+    "q": "31. (Conceito Geral e Acontecimento Suscetível de Previsão Aproximada – Art. 443, § 1º da CLT) Segundo o art. 443, § 1º da CLT, considera-se como de prazo determinado o contrato de trabalho cuja vigência dependa de termo prefixado, da execução de serviços especificados ou ainda da realização de certo acontecimento suscetível de previsão aproximada. Qual situação cotidiana abaixo exemplifica essa hipótese?",
+    "options": [
+      "Contratação de um vendedor para atuar por tempo indefinido na loja matriz.",
+      "Contratação de trabalhadores rurais para o período da colheita da safra de café, cujo encerramento depende do término da colheita.",
+      "Contratação de um gerente administrativo sem estipulação de termo final.",
+      "Contratação de um aeronauta em regime de trabalho intermitente."
+    ],
+    "answer": 1,
+    "explanation": "Conforme o art. 443, § 1º da CLT, o contrato por prazo determinado pode ter sua vigência vinculada à realização de certo acontecimento suscetível de previsão aproximada, como uma safra agrícola ou o término de uma obra específica."
+  },
+  {
+    "q": "32. (Atividades Empresariais Transitórias – Art. 443, § 2º, b, da CLT) Uma empresa especializada na organização de feiras agropecuárias e eventos sazonais contrata recepcionistas e montadores exclusivamente para o período do evento. Qual fundamento autoriza o contrato por prazo determinado?",
+    "options": [
+      "Contrato de experiência para verificar a aptidão dos trabalhadores.",
+      "Atividades empresariais de caráter transitório, pois a própria atividade do empregador não é perene e não se prolonga no tempo.",
+      "Lei nº 9.601/98, que exige acréscimo permanente no quadro de empregados.",
+      "Contrato de trabalho intermitente, por haver alternância de períodos de inatividade."
+    ],
+    "answer": 1,
+    "explanation": "O art. 443, § 2º, da CLT admite contratos por prazo determinado quando as atividades empresariais possuem caráter transitório, como feiras e eventos sazonais."
+  },
+  {
+    "q": "33. (Contrato de Experiência – Finalidade e Prazo Máximo) Qual é a finalidade legal do contrato de experiência previsto no art. 443, § 2º, c, da CLT, e qual é seu limite máximo de duração estabelecido no art. 445, parágrafo único?",
+    "options": [
+      "Substituir empregados afastados pelo INSS, com prazo máximo de 180 dias.",
+      "Permitir que o empregador verifique as aptidões do empregado para o exercício da função, não podendo exceder 90 dias.",
+      "Atender ao acréscimo extraordinário de serviços da empresa, com prazo máximo de 2 anos.",
+      "Testar o empregado apenas em atividades externas, com prazo máximo de 45 dias improrrogáveis."
+    ],
+    "answer": 1,
+    "explanation": "O contrato de experiência destina-se a permitir que o empregador verifique as aptidões do empregado para o exercício da função e não poderá exceder 90 dias."
+  },
+  {
+    "q": "34. (Limite Máximo e Conversão em Prazo Indeterminado – Arts. 445 e 451 da CLT) Uma empresa celebrou contrato por prazo determinado de 1 ano e 6 meses e realizou uma única prorrogação por mais 8 meses. O que ocorre juridicamente?",
+    "options": [
+      "Continua sendo por prazo determinado até completar 2 anos e 2 meses.",
+      "Passa a vigorar como contrato por prazo indeterminado, pois extrapolou o limite máximo legal de 2 anos.",
+      "É considerado nulo, devendo ser celebrado um novo contrato de experiência.",
+      "Converte-se automaticamente em contrato temporário da Lei nº 6.019/74."
+    ],
+    "answer": 1,
+    "explanation": "O art. 445 da CLT estabelece o limite máximo de 2 anos para o contrato por prazo determinado. A soma de 18 meses com 8 meses resulta em 26 meses, ultrapassando esse limite legal."
+  },
+  {
+    "q": "35. (Exceção à Regra dos 6 Meses na Sucessão de Contratos – Art. 452 da CLT) Em regra, considera-se por prazo indeterminado o contrato que suceder, dentro de 6 meses, a outro contrato por prazo determinado. Qual é a ressalva expressa no art. 452 da CLT?",
+    "options": [
+      "Quando o segundo contrato for celebrado verbalmente.",
+      "Quando a expiração do contrato anterior dependeu da execução de serviços especializados ou da realização de certos acontecimentos.",
+      "Quando o empregado concordar por escrito em abrir mão do vínculo por prazo indeterminado.",
+      "Quando se tratar de contrato de experiência na mesma função."
+    ],
+    "answer": 1,
+    "explanation": "Nos termos do art. 452 da CLT, considera-se por prazo indeterminado o contrato que suceder, dentro de 6 meses, a outro contrato por prazo determinado, salvo se a expiração deste dependeu da execução de serviços especializados ou da realização de certos acontecimentos."
+  },
+  {
+    "q": "36. (Cálculo Prático – Rescisão Antecipada pelo Empregador – Art. 479 da CLT) Lucas foi contratado em regime de experiência por 90 dias, com salário mensal de R$ 2.400,00 (R$ 80,00 por dia). No 60º dia, a empresa o dispensou sem justa causa, sem cláusula assecuratória. Faltavam 30 dias para o término. Qual será a indenização do art. 479 da CLT?",
+    "options": [
+      "R$ 2.400,00.",
+      "R$ 1.200,00.",
+      "R$ 4.800,00.",
+      "Zero, pois no contrato de experiência não cabe indenização por rescisão antecipada."
+    ],
+    "answer": 1,
+    "explanation": "O art. 479 da CLT prevê indenização correspondente à metade da remuneração a que o empregado teria direito até o término do contrato. Faltavam 30 dias, equivalentes a R$ 2.400,00; metade corresponde a R$ 1.200,00."
+  },
+  {
+    "q": "37. (Diferença entre CLT e Lei nº 9.601/98 – Prorrogações e Indenização) Comparando o contrato por prazo determinado tradicional da CLT com o contrato por prazo determinado da Lei nº 9.601/98, quais são duas diferenças previstas nesta última modalidade?",
+    "options": [
+      "Prazo máximo de 5 anos e proibição de negociação coletiva.",
+      "Possibilidade de mais de uma prorrogação dentro do limite de 2 anos e definição da indenização por rescisão antecipada pela própria CCT ou ACT.",
+      "Exigência de apenas uma prorrogação e multa fixa de 50% prevista no art. 479 da CLT.",
+      "Finalidade exclusiva de substituição de empregados em férias e prazo máximo de 90 dias."
+    ],
+    "answer": 1,
+    "explanation": "Na modalidade da Lei nº 9.601/98, admite-se mais de uma prorrogação dentro do limite máximo de 2 anos, e a indenização por rescisão antecipada será definida pela CCT ou ACT."
+  },
+  {
+    "q": "38. (Trabalho Temporário – Lei nº 6.019/74 – Hipóteses e Vínculo) Uma indústria precisa substituir por 4 meses uma analista financeira efetiva que entrou em licença-maternidade e decide utilizar mão de obra temporária. Qual alternativa está correta?",
+    "options": [
+      "A contratação é irregular, pois a Lei nº 6.019/74 só permite trabalho temporário para acréscimo extraordinário de serviço.",
+      "A contratação é regular, pois existe necessidade transitória de substituição de pessoal permanente, e não existe vínculo de emprego entre a tomadora e os trabalhadores contratados pela empresa de trabalho temporário.",
+      "Forma-se vínculo de emprego direto com a empresa tomadora após 90 dias de prestação de serviços.",
+      "O trabalhador temporário deve ser contratado diretamente pela indústria, sem intermediação de empresa de trabalho temporário."
+    ],
+    "answer": 1,
+    "explanation": "A Lei nº 6.019/74 autoriza trabalho temporário para substituição transitória de pessoal permanente ou acréscimo extraordinário de serviços. Em regra, não existe vínculo de emprego entre a tomadora e os trabalhadores contratados pela empresa de trabalho temporário."
+  },
+  {
+    "q": "39. (Dica de Prova – Distinção na Lei nº 6.019/74 entre Temporário e Terceirização) A Lei nº 6.019/74 disciplina tanto o trabalho temporário quanto a prestação de serviços a terceiros. Qual distinção ajuda a identificar os dispositivos legais?",
+    "options": [
+      "Os artigos com letras, como art. 4º-A, 4º-B e 5º-A, tratam de terceirização, enquanto os artigos sem letras tratam de trabalho temporário.",
+      "Os artigos com letras tratam de contrato de experiência, e os artigos sem letras tratam de contrato intermitente.",
+      "Apenas os artigos sem letras exigem responsabilidade subsidiária da tomadora.",
+      "Não há qualquer diferença entre terceirização e trabalho temporário na Lei nº 6.019/74."
+    ],
+    "answer": 0,
+    "explanation": "Conforme a distinção apresentada no material, os artigos com letras, como 4º-A, 4º-B e 5º-A, tratam de terceirização; os dispositivos sem letras tratam de trabalho temporário."
+  },
+  {
+    "q": "40. (Regra Geral vs. Exceção nos Contratos de Trabalho) Qual modalidade contratual constitui a regra geral no Direito do Trabalho brasileiro, presumindo-se celebrada quando não houver estipulação expressa e válida em sentido contrário?",
+    "options": [
+      "Contrato de trabalho por prazo determinado.",
+      "Contrato de trabalho por prestação de trabalho intermitente.",
+      "Contrato de trabalho por prazo indeterminado, que não contém determinação de sua vigência e terá validade até que ocorra uma causa definitiva de extinção.",
+      "Contrato de trabalho temporário."
+    ],
+    "answer": 2,
+    "explanation": "O contrato por prazo indeterminado é a regra geral no Direito do Trabalho. Os contratos a termo e intermitente são exceções que dependem do preenchimento de requisitos legais específicos."
+  }
+];;
 
 let questions = [];
 let current = 0;
