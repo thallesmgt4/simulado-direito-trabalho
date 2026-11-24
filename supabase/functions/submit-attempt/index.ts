@@ -93,6 +93,7 @@ Deno.serve(async (req: Request) => {
     }
 
     const seen = new Set<number>();
+    const results: Array<{ question: number; selectedOption: number; correctOption: number; isCorrect: boolean }> = [];
     let score = 0;
     for (const item of answers) {
       const question = Number(item?.question);
@@ -103,7 +104,10 @@ Deno.serve(async (req: Request) => {
         return Response.json({ error: "Respostas incompletas ou inválidas." }, { status: 400, headers: corsHeaders });
       }
       seen.add(question);
-      if (ANSWER_KEY[question] === selectedOption) score++;
+      const correctOption = ANSWER_KEY[question];
+      const isCorrect = correctOption === selectedOption;
+      if (isCorrect) score++;
+      results.push({ question, selectedOption, correctOption, isCorrect });
     }
     if (seen.size !== 40) {
       return Response.json({ error: "É necessário responder às 40 questões." }, { status: 400, headers: corsHeaders });
@@ -123,7 +127,7 @@ Deno.serve(async (req: Request) => {
     const { data: leaderboard, error: rankingError } = await admin.rpc("get_quiz_leaderboard");
     if (rankingError) throw rankingError;
 
-    return Response.json({ score, total: 40, percentage: Math.round(score / 40 * 100), leaderboard }, {
+    return Response.json({ score, total: 40, percentage: Math.round(score / 40 * 100), results, leaderboard }, {
       status: 200,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
