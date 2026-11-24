@@ -1,0 +1,4 @@
+project_id = "COLOQUE_SEU_PROJECT_REF"
+
+[functions.submit-attempt]
+verify_jwt = true
