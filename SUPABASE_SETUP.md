@@ -24,8 +24,9 @@ Não coloque a senha do banco nem a secret/service_role key no HTML ou em arquiv
 No Supabase, abra Authentication / Providers / Email:
 - habilite Email provider;
 - mantenha Confirm email ativado;
-- defina Site URL com a URL publicada do GitHub Pages;
-- adicione a mesma URL em Redirect URLs, incluindo a página inicial do site.
+- defina Site URL como `https://thallesmgt4.github.io/simulado-direito-trabalho/` (se você estiver usando o endereço padrão do GitHub Pages);
+- adicione essa mesma URL em Redirect URLs, incluindo a página inicial do site;
+- confirme que a opção de confirmação de e-mail está ativada.
 
 O envio padrão de e-mails do Supabase tem limite baixo e é indicado para testes. Para uso real, configure SMTP próprio no Supabase.
 
@@ -44,7 +45,7 @@ O arquivo `index.html` já está conectado ao projeto `gvzsguoppaehjntalcbm` com
 
 A URL do projeto é `https://gvzsguoppaehjntalcbm.supabase.co`. A Publishable key fica no HTML porque é uma chave pública; a segurança depende das políticas RLS e da validação no servidor. Nunca coloque a secret/service_role key no navegador.
 
-Ainda é necessário concluir a configuração do Supabase e publicar a migração e a Edge Function antes de o ranking gravar resultados.
+Ainda é necessário concluir a configuração de autenticação no painel Supabase, criar os três secrets do GitHub Actions e executar o workflow antes de o ranking gravar resultados. O endereço padrão esperado do site é `https://thallesmgt4.github.io/simulado-direito-trabalho/`; se houver domínio personalizado ou URL diferente, use a URL real do site nas configurações de autenticação.
 
 ## Observações de segurança
 
