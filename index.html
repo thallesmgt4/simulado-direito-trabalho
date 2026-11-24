@@ -796,6 +796,7 @@ function prepareQuiz() {
   questions = shuffle(originalQuestions).map(item => {
     const options = item.options.map((text, index) => ({
       text,
+      originalIndex: index,
       correct: index === item.answer
     }));
     return {
@@ -971,7 +972,94 @@ function showResult() {
   });
 
   window.scrollTo({ top: 0, behavior: "smooth" });
+  submitAttemptToServer();
 }
+
+async function submitAttemptToServer() {
+  const answers = questions.map((item, index) => ({
+    question: Number((item.q.match(/^\s*(\d+)/) || [])[1]),
+    selectedOption: item.shuffledOptions[responses[index]].originalIndex
+  }));
+  const elapsedSeconds = Math.max(1, Math.floor((Date.now() - quizStartedAt) / 1000));
+  const { data, error } = await supabaseClient.functions.invoke("submit-attempt", { body: { answers, elapsedSeconds } });
+  if (error || !data || data.error) {
+    document.getElementById("resultMessage").textContent = "Tentativa concluída, mas não salva no ranking: " + (data?.error || error?.message || "falha de comunicação") + ".";
+    return;
+  }
+  document.getElementById("percentage").textContent = data.percentage + "%";
+  document.getElementById("correctCount").textContent = data.score;
+  document.getElementById("wrongCount").textContent = data.total - data.score;
+  document.getElementById("resultMessage").textContent = "Resultado validado e salvo no ranking com segurança.";
+  renderLeaderboard(data.leaderboard || []);
+}
+
+function renderLeaderboard(rows) {
+  const target = document.getElementById("leaderboardContent");
+  if (!rows.length) { target.textContent = "Ainda não há resultados registrados."; return; }
+  const table = document.createElement("table");
+  table.style.cssText = "width:100%;border-collapse:collapse;font-size:13px;text-align:left;";
+  const header = document.createElement("tr");
+  ["Posição", "Participante", "Nota", "Tempo", "Data"].forEach(label => {
+    const th = document.createElement("th"); th.textContent = label;
+    th.style.cssText = "padding:9px;border-bottom:2px solid var(--border);"; header.appendChild(th);
+  });
+  table.appendChild(header);
+  rows.forEach(row => {
+    const tr = document.createElement("tr");
+    const vals = [row.position, row.display_name, row.score + "/40", Math.floor(row.elapsed_seconds/60) + "m " + (row.elapsed_seconds%60) + "s", new Date(row.achieved_at).toLocaleDateString("pt-BR")];
+    vals.forEach(value => { const td = document.createElement("td"); td.textContent = String(value ?? ""); td.style.cssText = "padding:9px;border-bottom:1px solid var(--border);"; tr.appendChild(td); });
+    table.appendChild(tr);
+  });
+  target.replaceChildren(table);
+}
+
+async function loadLeaderboard() {
+  const { data, error } = await supabaseClient.rpc("get_quiz_leaderboard");
+  if (error) { document.getElementById("leaderboardContent").textContent = "O ranking ficará disponível após a publicação da estrutura do banco."; return; }
+  renderLeaderboard(data || []);
+}
+
+function setAuthMessage(message) { document.getElementById("authMessage").textContent = message; }
+
+async function refreshAuthUI(session) {
+  currentUser = session?.user || null;
+  const confirmed = Boolean(currentUser?.email_confirmed_at);
+  document.getElementById("authPanel").style.display = (!currentUser || !confirmed) ? "block" : "none";
+  document.getElementById("signedInPanel").style.display = currentUser ? "block" : "none";
+  document.getElementById("leaderboardPanel").style.display = currentUser && confirmed ? "block" : "none";
+  document.getElementById("quiz").style.display = "none";
+  document.getElementById("result").style.display = "none";
+  if (!currentUser) return;
+  document.getElementById("welcomeText").textContent = "Conectado como " + (currentUser.user_metadata?.display_name || currentUser.email);
+  document.getElementById("emailStatus").textContent = confirmed ? "E-mail confirmado. Você já pode iniciar o simulado." : "Confirme seu e-mail pelo link enviado antes de participar do ranking.";
+  document.getElementById("resendBtn").style.display = confirmed ? "none" : "inline-block";
+  if (confirmed) { prepareQuiz(); quizStartedAt = Date.now(); loadQuestion(); document.getElementById("quiz").style.display = "block"; loadLeaderboard(); }
+}
+
+document.getElementById("signUpBtn").addEventListener("click", async () => {
+  const displayName = document.getElementById("displayName").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+  if (!displayName || !email || password.length < 6) { setAuthMessage("Informe nome, e-mail e senha com pelo menos 6 caracteres."); return; }
+  const { data, error } = await supabaseClient.auth.signUp({ email, password, options: { data: { display_name: displayName }, emailRedirectTo: window.location.origin + window.location.pathname } });
+  if (error) { setAuthMessage(error.message); return; }
+  setAuthMessage(data.session ? "Conta criada. Confirme seu e-mail para liberar o simulado." : "Cadastro iniciado! Abra o link enviado ao e-mail e depois entre.");
+  if (data.session) await refreshAuthUI(data.session);
+});
+document.getElementById("signInBtn").addEventListener("click", async () => {
+  const email = document.getElementById("email").value.trim(); const password = document.getElementById("password").value;
+  const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+  if (error) { setAuthMessage(error.message); return; } setAuthMessage("Login realizado."); await refreshAuthUI(data.session);
+});
+document.getElementById("resendBtn").addEventListener("click", async () => {
+  const email = document.getElementById("email").value.trim() || currentUser?.email;
+  if (!email) { setAuthMessage("Informe o e-mail cadastrado."); return; }
+  const { error } = await supabaseClient.auth.resend({ type: "signup", email });
+  setAuthMessage(error ? error.message : "Novo link de confirmação enviado.");
+});
+document.getElementById("signOutBtn").addEventListener("click", async () => { await supabaseClient.auth.signOut(); await refreshAuthUI(null); });
+supabaseClient.auth.onAuthStateChange((_event, session) => { refreshAuthUI(session); });
+(async function initializeApp() { const { data } = await supabaseClient.auth.getSession(); await refreshAuthUI(data.session); loadLeaderboard(); })();
 
 function restartQuiz() {
   prepareQuiz();
@@ -980,11 +1068,11 @@ function restartQuiz() {
   document.getElementById("quiz").style.display = "block";
 
   window.scrollTo({ top: 0, behavior: "smooth" });
+  quizStartedAt = Date.now();
   loadQuestion();
 }
 
-prepareQuiz();
-loadQuestion();
+// O simulado só é liberado após autenticação e confirmação do e-mail.
 </script>
 </body>
 </html>
