@@ -38,16 +38,13 @@ No repositório GitHub, abra Settings / Secrets and variables / Actions e crie:
 
 Depois de adicionar os três secrets, execute Actions / Deploy Supabase / Run workflow. O workflow aplica a migração e publica a Edge Function. Não adicione a service_role key aos secrets do GitHub: a função usa a variável protegida do ambiente Supabase.
 
-## 4. Configuração que falta no front-end
+## 4. Front-end conectado
 
-O HTML ainda não foi conectado nem alterado para exigir cadastro, pois precisamos inserir o Project URL e a Publishable key corretos do seu projeto. Esses dois valores são públicos por definição e podem ser usados no front-end com RLS ativo. Nunca use secret/service_role key no navegador.
+O arquivo `index.html` já está conectado ao projeto `gvzsguoppaehjntalcbm` com a Publishable key pública. O simulado exige cadastro/login e confirmação do e-mail; a nota é enviada à Edge Function e o ranking público exibe somente nome, nota, tempo e data.
 
-Depois de criar o projeto, envie somente:
-- Project URL;
-- Project Reference ID;
-- Publishable key (ou anon key).
+A URL do projeto é `https://gvzsguoppaehjntalcbm.supabase.co`. A Publishable key fica no HTML porque é uma chave pública; a segurança depende das políticas RLS e da validação no servidor. Nunca coloque a secret/service_role key no navegador.
 
-Nunca envie a senha do banco, senha de usuário, token pessoal ou service_role/secret key.
+Ainda é necessário concluir a configuração do Supabase e publicar a migração e a Edge Function antes de o ranking gravar resultados.
 
 ## Observações de segurança
 
