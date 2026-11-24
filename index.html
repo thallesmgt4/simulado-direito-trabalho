@@ -248,7 +248,7 @@ header p { color: #c5d9ce; margin: 0; font-size: 14px; }
     <input id="email" type="email" autocomplete="email" placeholder="Seu e-mail" style="padding:12px;border:1px solid var(--border);border-radius:8px;">
     <input id="password" type="password" autocomplete="current-password" placeholder="Senha (mínimo 6 caracteres)" style="padding:12px;border:1px solid var(--border);border-radius:8px;">
     <div style="display:flex;gap:10px;flex-wrap:wrap;"><button class="btn" id="signUpBtn">Criar conta</button><button class="btn secondary" id="signInBtn">Entrar</button></div>
-    <button class="btn secondary" id="resendBtn" style="display:none;">Reenviar confirmação de e-mail</button>
+    <button class="btn secondary" id="resendBtn">Reenviar confirmação de e-mail</button>
     <p id="authMessage" role="status" aria-live="polite"></p>
   </div>
 </section>
@@ -1026,7 +1026,7 @@ async function refreshAuthUI(session) {
   const confirmed = Boolean(currentUser?.email_confirmed_at);
   document.getElementById("authPanel").style.display = (!currentUser || !confirmed) ? "block" : "none";
   document.getElementById("signedInPanel").style.display = currentUser ? "block" : "none";
-  document.getElementById("leaderboardPanel").style.display = currentUser && confirmed ? "block" : "none";
+  document.getElementById("leaderboardPanel").style.display = "block";
   document.getElementById("quiz").style.display = "none";
   document.getElementById("result").style.display = "none";
   if (!currentUser) return;
