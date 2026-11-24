@@ -883,67 +883,15 @@ document.getElementById("nextBtn").addEventListener("click", () => {
 function showResult() {
   document.getElementById("quiz").style.display = "none";
   document.getElementById("result").style.display = "block";
-
-  const total = questions.length;
-  const wrong = total - score;
-  const percentage = Math.round((score / total) * 100);
-
-  document.getElementById("percentage").textContent =
-    `${percentage}%`;
-
-  document.getElementById("correctCount").textContent = score;
-  document.getElementById("wrongCount").textContent = wrong;
-  document.getElementById("totalCount").textContent = total;
-
-  let message;
-
-  if (percentage === 100) {
-    message = "Excelente! Você acertou todas as questões!";
-  } else if (percentage >= 80) {
-    message = "Ótimo desempenho! Você está no caminho certo.";
-  } else if (percentage >= 60) {
-    message = "Bom trabalho! Continue revisando os conteúdos.";
-  } else {
-    message = "Continue estudando. A revisão vai ajudar a melhorar!";
-  }
-
-  document.getElementById("resultMessage").textContent = message;
-
-  const reviewList = document.getElementById("reviewList");
-  reviewList.innerHTML = "";
-
-  questions.forEach((item, index) => {
-    const selectedIndex = responses[index];
-    const selected = item.shuffledOptions[selectedIndex];
-    const correct = item.shuffledOptions.find(o => o.correct);
-
-    const div = document.createElement("div");
-    div.className = `review-item ${selected.correct ? "good" : "bad"}`;
-
-    const title = document.createElement("strong");
-    title.textContent = `Questão ${index + 1} — ${selected.correct ? "Acertou" : "Errou"}`;
-
-    const question = document.createElement("p");
-    question.textContent = item.q;
-
-    const yourAnswer = document.createElement("p");
-    yourAnswer.textContent = `Sua resposta: ${selected.text}`;
-
-    const correctAnswer = document.createElement("p");
-    correctAnswer.className = "review-answer";
-    correctAnswer.textContent = `Resposta correta: ${correct.text}`;
-
-    const explanation = document.createElement("p");
-    explanation.textContent = `Comentário: ${item.explanation}`;
-
-    div.append(title, question, yourAnswer, correctAnswer, explanation);
-    reviewList.appendChild(div);
-  });
-
+  document.getElementById("percentage").textContent = "--";
+  document.getElementById("correctCount").textContent = "--";
+  document.getElementById("wrongCount").textContent = "--";
+  document.getElementById("totalCount").textContent = questions.length;
+  document.getElementById("resultMessage").textContent = "Validando suas respostas no servidor...";
+  document.getElementById("reviewList").textContent = "Aguarde a validação para ver o gabarito e os comentários.";
   window.scrollTo({ top: 0, behavior: "smooth" });
   submitAttemptToServer();
 }
-
 async function submitAttemptToServer() {
   const answers = questions.map((item, index) => ({
     question: Number((item.q.match(/^\s*(\d+)/) || [])[1]),
@@ -952,14 +900,44 @@ async function submitAttemptToServer() {
   const elapsedSeconds = Math.max(1, Math.floor((Date.now() - quizStartedAt) / 1000));
   const { data, error } = await supabaseClient.functions.invoke("submit-attempt", { body: { answers, elapsedSeconds } });
   if (error || !data || data.error) {
-    document.getElementById("resultMessage").textContent = "Tentativa concluída, mas não salva no ranking: " + (data?.error || error?.message || "falha de comunicação") + ".";
+    document.getElementById("resultMessage").textContent = "Não foi possível validar ou salvar a tentativa: " + (data?.error || error?.message || "falha de comunicação") + ".";
+    document.getElementById("reviewList").textContent = "O gabarito permanece oculto até a validação do servidor.";
     return;
   }
+  score = data.score;
   document.getElementById("percentage").textContent = data.percentage + "%";
   document.getElementById("correctCount").textContent = data.score;
   document.getElementById("wrongCount").textContent = data.total - data.score;
   document.getElementById("resultMessage").textContent = "Resultado validado e salvo no ranking com segurança.";
+  renderReview(data.results || []);
   renderLeaderboard(data.leaderboard || []);
+}
+
+function renderReview(results) {
+  const byQuestion = new Map(results.map(result => [result.question, result]));
+  const reviewList = document.getElementById("reviewList");
+  reviewList.innerHTML = "";
+  questions.forEach(item => {
+    const questionNumber = Number((item.q.match(/^\\s*(\\d+)/) || [])[1]);
+    const result = byQuestion.get(questionNumber);
+    if (!result) return;
+    const isCorrect = result.isCorrect;
+    const div = document.createElement("div");
+    div.className = "review-item " + (isCorrect ? "good" : "bad");
+    const title = document.createElement("strong");
+    title.textContent = "Questão " + questionNumber + " — " + (isCorrect ? "Acertou" : "Errou");
+    const question = document.createElement("p");
+    question.textContent = item.q;
+    const yourAnswer = document.createElement("p");
+    yourAnswer.textContent = "Sua resposta: " + item.options[result.selectedOption];
+    const correctAnswer = document.createElement("p");
+    correctAnswer.className = "review-answer";
+    correctAnswer.textContent = "Resposta correta: " + item.options[result.correctOption];
+    const explanation = document.createElement("p");
+    explanation.textContent = "Comentário: " + item.explanation;
+    div.append(title, question, yourAnswer, correctAnswer, explanation);
+    reviewList.appendChild(div);
+  });
 }
 
 function renderLeaderboard(rows) {
