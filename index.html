@@ -1058,7 +1058,7 @@ document.getElementById("resendBtn").addEventListener("click", async () => {
   setAuthMessage(error ? error.message : "Novo link de confirmação enviado.");
 });
 document.getElementById("signOutBtn").addEventListener("click", async () => { await supabaseClient.auth.signOut(); await refreshAuthUI(null); });
-supabaseClient.auth.onAuthStateChange((_event, session) => { refreshAuthUI(session); });
+supabaseClient.auth.onAuthStateChange((event, session) => { if (["INITIAL_SESSION", "SIGNED_IN", "SIGNED_OUT"].includes(event)) refreshAuthUI(session); });
 (async function initializeApp() { const { data } = await supabaseClient.auth.getSession(); await refreshAuthUI(data.session); loadLeaderboard(); })();
 
 function restartQuiz() {
