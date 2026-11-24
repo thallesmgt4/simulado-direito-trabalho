@@ -240,7 +240,27 @@ header p { color: #c5d9ce; margin: 0; font-size: 14px; }
 
 <main class="card">
 
-<section id="quiz">
+<section id="authPanel">
+  <h2>Entre para participar do ranking</h2>
+  <p>Crie sua conta com nome, e-mail e senha. O ranking mostra apenas seu nome, sua pontuação e seu tempo — nunca seu e-mail.</p>
+  <div style="display:grid;gap:10px;max-width:440px;">
+    <input id="displayName" type="text" autocomplete="name" placeholder="Seu nome para o ranking" style="padding:12px;border:1px solid var(--border);border-radius:8px;">
+    <input id="email" type="email" autocomplete="email" placeholder="Seu e-mail" style="padding:12px;border:1px solid var(--border);border-radius:8px;">
+    <input id="password" type="password" autocomplete="current-password" placeholder="Senha (mínimo 6 caracteres)" style="padding:12px;border:1px solid var(--border);border-radius:8px;">
+    <div style="display:flex;gap:10px;flex-wrap:wrap;"><button class="btn" id="signUpBtn">Criar conta</button><button class="btn secondary" id="signInBtn">Entrar</button></div>
+    <button class="btn secondary" id="resendBtn" style="display:none;">Reenviar confirmação de e-mail</button>
+    <p id="authMessage" role="status" aria-live="polite"></p>
+  </div>
+</section>
+<section id="signedInPanel" style="display:none;margin-bottom:22px;">
+  <span id="welcomeText"></span> <button class="btn secondary" id="signOutBtn">Sair</button>
+  <p id="emailStatus" style="font-size:13px;color:var(--muted);"></p>
+</section>
+<section id="leaderboardPanel" style="display:none;margin-bottom:22px;">
+  <h2>🏆 Ranking geral</h2><div id="leaderboardContent" style="overflow-x:auto;">Carregando ranking...</div>
+</section>
+
+<section id="quiz" style="display:none;">
   <div class="top-info">
     <span id="progressText">Questão 1 de 40</span>
     <span id="scoreLive">Acertos: 0</span>
