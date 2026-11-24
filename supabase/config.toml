@@ -1,4 +1,4 @@
-project_id = "simulado-direito-trabalho"
+project_id = "gvzsguoppaehjntalcbm"
 
 [functions.submit-attempt]
 verify_jwt = true
