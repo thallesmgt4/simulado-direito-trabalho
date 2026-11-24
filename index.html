@@ -918,7 +918,7 @@ function renderReview(results) {
   const reviewList = document.getElementById("reviewList");
   reviewList.innerHTML = "";
   questions.forEach(item => {
-    const questionNumber = Number((item.q.match(/^\\s*(\\d+)/) || [])[1]);
+    const questionNumber = Number((item.q.match(/^\s*(\d+)/) || [])[1]);
     const result = byQuestion.get(questionNumber);
     if (!result) return;
     const isCorrect = result.isCorrect;
