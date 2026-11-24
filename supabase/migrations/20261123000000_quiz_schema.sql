@@ -38,7 +38,6 @@ create policy "Users can read own attempts"
   on public.quiz_attempts for select to authenticated
   using (user_id = (select auth.uid()));
 
--- O perfil é criado automaticamente quando o usuário conclui o cadastro.
 create or replace function public.handle_new_quiz_user()
 returns trigger
 language plpgsql
@@ -69,7 +68,6 @@ create trigger on_auth_user_created_quiz_profile
   after insert on auth.users
   for each row execute procedure public.handle_new_quiz_user();
 
--- Retorna somente nome público e melhor resultado; e-mails nunca são expostos.
 create or replace function public.get_quiz_leaderboard()
 returns table (
   position bigint,
@@ -80,9 +78,9 @@ returns table (
   achieved_at timestamptz
 )
 language sql
+stable
 security definer
 set search_path = public
-stable
 as $$
   with best_attempt as (
     select distinct on (a.user_id)
@@ -103,10 +101,10 @@ as $$
       b.score,
       b.total_questions,
       b.elapsed_seconds,
-      b.created_at as achieved_at
+      b.created_at
     from best_attempt b
   )
-  select r.position, r.display_name, r.score, r.total_questions, r.elapsed_seconds, r.achieved_at
+  select r.position, r.display_name, r.score, r.total_questions, r.elapsed_seconds, r.created_at
   from ranked r
   order by r.position
   limit 100;
@@ -114,5 +112,6 @@ $$;
 
 revoke all on function public.get_quiz_leaderboard() from public;
 grant execute on function public.get_quiz_leaderboard() to anon, authenticated;
-grant select, update on public.profiles to authenticated;
+grant select on public.profiles to authenticated;
+grant update (display_name) on public.profiles to authenticated;
 grant select on public.quiz_attempts to authenticated;
