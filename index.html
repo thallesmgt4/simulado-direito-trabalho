@@ -306,7 +306,13 @@ header p { color: #c5d9ce; margin: 0; font-size: 14px; }
 </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
+const SUPABASE_URL = "https://gvzsguoppaehjntalcbm.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_vLkUAK-bJG6SA47bhj9dsg_asP4C5RQ";
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+let currentUser = null;
+let quizStartedAt = null;
 const originalQuestions = [
   {
     "q": "1. Uma empresa do ramo de varejo precisa contratar reforço de pessoal por 90 dias para atender ao aumento extraordinário de vendas no final de ano, sem vínculo direto com a tomadora. Caso haja necessidade comprovada de manutenção das condições que ensejaram a contratação, qual é o prazo máximo total que esse trabalhador poderá permanecer prestando serviços sob a égide da Lei nº 6.019/74?",
